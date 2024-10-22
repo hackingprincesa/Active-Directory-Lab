@@ -11,7 +11,7 @@ I aim to leverage my skills and knowledge to make a positive impact in a SOC env
 
 | Skill                                         | Associated Project         |
 |-----------------------------------------------|----------------------------|
-| SIEM Implementation and Log Analysis          | <a href="https://github.com/hackingprincesa/Project">Project</a>|
+| SIEM Implementation and Log Analysis          | <a href="https://github.com/hackingprincesa/Malware-Analysis-Lab">Malware Analysis Lab</a>|
 | Network Traffic Monitoring and Attack Detection | <a href="https://google.com">Detection Lab</a>|
 | Security Automation with Shuffle SOAR         | SOC Automation Lab|
 | Incident Response Planning and Execution      | SOC Automation Lab|
@@ -46,5 +46,5 @@ I aim to leverage my skills and knowledge to make a positive impact in a SOC env
 </div>
 
 ## Projects
-- <a href="https://github.com/hackingprincesa/Project">Project</a>
+- <a href="https://github.com/hackingprincesa/Malware-Analysis-Lab">Malware Analysis Lab</a>
 - SOC Automation Project
