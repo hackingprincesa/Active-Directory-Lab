@@ -1,21 +1,11 @@
-- 👋 Hi, I’m @hackingprincesa
+# 👋 Hi, I'm Hillary Robles
   <a href="https://www.linkedin.com/in/hillary-robles"><img src="https://img.shields.io/badge/-LinkedIn-0072b1?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
 
-# Hello, I'm CHANGEME
-
-
-I am a recent graduate with a profound interest in technology and a dedication to solving complex problems.
+I’m an aspiring SOC Analyst with a deep interest in technology and a dedication to solving complex problems. My journey into cybersecurity has fueled my passion for protecting systems and responding to threats, and I’m eager to contribute to a Security Operations Center (SOC) as a Tier 1 Analyst.
 
 ## Objective
-[Provide Objective - Remove this afterwards]]
 
-My journey in computer science has led me to develop a passion for cybersecurity, and I am now eager to transition into this field, specifically aiming to join a Security Operations Center (SOC) as a Tier 1 Analyst.
+I aim to leverage my skills and knowledge to make a positive impact in a SOC environment, helping to safeguard digital assets and manage security incidents effectively.
 
 ## Skills
 [Provide skills and associated project. Make sure to hyperlink the project - Remove this afterwards]]
