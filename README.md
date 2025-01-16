@@ -20,17 +20,18 @@ The Active Directory lab includes:
 - Tools and Utilities: PowerShell, RSAT tools, and other administrative tools for managing the environment.
 
 **Software Used**
-- Virtualization: VMware Workstation / VirtualBox / Hyper-V
-- Operating Systems: Windows Server 2022, Windows 10, and Linux
-- Additional Tools: Sysinternals Suite, Wireshark, and MyDFIR-suggested utilities
+- Virtualization: VirtualBox 
+- Operating Systems: Windows Server 2022, Windows 10, Kali Linux
+- Additional Tools: Sysinternals Suite, Wireshark, and Splunk
+
 
 **Configuration Steps**
-1. Virtual Machine Setup: Created virtual machines for the domain controller and client machines.
+1. Virtual Machine Setup: Installed Virtual Box for the domain controller and client machines.
 2. AD Domain Setup: Installed Active Directory Domain Services (AD DS) and promoted the server to a domain controller.
 3. DNS Configuration: Configured DNS zones for domain name resolution.
 4. Group Policies: Implemented policies for user and computer settings.
 5. User and Group Management: Created and managed users, groups, and organizational units (OUs).
-6. Additional Features: Set up File Sharing, Remote Desktop, and other services.
+6. Additional Features: Set up File Sharing, Remote Desktop, and other services. 
 
 **Enhancements**
 
@@ -59,7 +60,7 @@ In addition to the foundational lab setup, I:
 
 ## Future Plans
 
-- Expand the lab to include additional services like Certificate Services and Federation Services.
+- Expand the lab to include advanced AD features like Certificate Services and Federation Services.
 - Integrate SIEM tools for advanced monitoring and analysis.
 - Explore hybrid environments by connecting the lab to Azure Active Directory.
 
