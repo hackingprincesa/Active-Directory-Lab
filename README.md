@@ -15,7 +15,6 @@ This project involves setting up a home lab environment using VirtualBox to simu
 - Static IP configurations for network communication
 - Sysmon and Splunk Universal Forwarder for advanced telemetry collection
 - Security testing tools such as Atomic Red Team, Crowbar, and PowerShell.
-
  
 ## Environment Setup
 
@@ -41,7 +40,6 @@ Splunk:
 1.2 Network Configuration
 All machines were assigned static IPs to ensure reliable communication within the isolated lab network.
 
- 
  ## Active Directory Domain Setup
  
 **2.1 Domain Controller Configuration**
@@ -52,57 +50,56 @@ All machines were assigned static IPs to ensure reliable communication within th
 
 **2.2 Organizational Units (OUs) & User Management**
 
-Created several Organizational Units (OUs) within Active Directory:
-Users OU: To store user accounts.
-Admins OU: For administrative user accounts and groups.
-Users were created with appropriate roles and permissions.
-Password policies were configured as part of the Active Directory security hardening process.
-Example of tasks completed:
-Created users: E.g., john.doe, jane.smith, etc.
-Reset user passwords for testing purposes.
-Disabled accounts for test scenarios.
-Granted permissions to other servers to join the domain.
+- Created several Organizational Units (OUs) within Active Directory:
+  - Users OU: To store user accounts.
+  - Admins OU: For administrative user accounts and groups.
+- Users were created with appropriate roles and permissions.
+- Password policies were configured as part of the Active Directory security hardening process.
+- Example of tasks completed:
+  - Created users: E.g., john.doe, jane.smith, etc.
+  - Reset user passwords for testing purposes.
+  - Disabled accounts for test scenarios.
+  - Granted permissions to other servers to join the domain.
 
 **2.3 Domain Controller Testing**
-Successfully joined the target machine to the domain (lab.local).
-Ensured replication of AD information across all domain controllers.
-Verified Group Policy Objects (GPOs) were applied correctly.
-
+- Successfully joined the target machine to the domain (lab.local).
+- Ensured replication of AD information across all domain controllers.
+- Verified Group Policy Objects (GPOs) were applied correctly.
  
  ## Penetration Testing
  
 **3.1 Simulating a Brute Force Attack (Crowbar on Kali Linux)**
-Crowbar was used to simulate a brute-force attack on a user account on the Windows 10 Target Machine.
-The attack targeted the Windows login using common password lists.
-Successfully gained access to the target machine after multiple attempts.
+- Crowbar was used to simulate a brute-force attack on a user account on the Windows 10 Target Machine.
+  - The attack targeted the Windows login using common password lists.
+  - Successfully gained access to the target machine after multiple attempts.
 
 **3.2 Telemetry Collection in Splunk**
-The Splunk server was configured to receive logs and telemetry data from:
-Windows Event Logs on the Domain Controller.
-Security logs for failed login attempts, account lockouts, and successful authentication.
-Kali Linux logs for penetration testing activities (such as brute-force attempts).
-Splunk dashboards were created to visualize:
-Authentication failures and successes.
-User account lockouts.
-Attack attempts (e.g., brute force) against the domain.
+- The Splunk server was configured to receive logs and telemetry data from:
+  - Windows Event Logs on the Domain Controller.
+  - Security logs for failed login attempts, account lockouts, and successful authentication.
+  - Kali Linux logs for penetration testing activities (such as brute-force attempts).
+- Splunk dashboards were created to visualize:
+  - Authentication failures and successes.
+  - User account lockouts.
+  - Attack attempts (e.g., brute force) against the domain.
 
 **3.3 Atomic Red Team Execution (PowerShell Attacks)**
-Installed and configured Atomic Red Team on the Domain Controller for attack simulation.
-PowerShell-based attacks were executed to simulate various adversary tactics:
-Privilege escalation via exploiting misconfigured permissions.
-Persistence mechanisms.
-Command and Control (C2) communication testing.
+- Installed and configured Atomic Red Team on the Domain Controller for attack simulation.
+- PowerShell-based attacks were executed to simulate various adversary tactics:
+  - Privilege escalation via exploiting misconfigured permissions.
+  - Persistence mechanisms.
+  - Command and Control (C2) communication testing.
 
 **3.4 Telemetry on Kali Linux**
-The Kali Linux machine executed simulated attacks using Atomic Red Team tools.
-The telemetry from the executed attacks (e.g., PowerShell exploitation) was captured in Splunk.
+- The Kali Linux machine executed simulated attacks using Atomic Red Team tools.
+- The telemetry from the executed attacks (e.g., PowerShell exploitation) was captured in Splunk.
 
 ## Sysmon and Splunk Universal Forwarder Setup
 
 **4.1 Installing Sysmon**
-Sysmon (System Monitor) was installed on both the ADDC (Domain Controller) and the Target Machine to provide enhanced monitoring and detailed event logging.
-Sysmon captures detailed event data such as process creation, network connections, file creation timestamps, and more.
-Sysmon Configuration File was customized to ensure that relevant events (such as suspicious PowerShell execution and process injections) were captured.
+- Sysmon (System Monitor) was installed on both the ADDC (Domain Controller) and the Target Machine to provide enhanced monitoring and detailed event logging.
+  - Sysmon captures detailed event data such as process creation, network connections, file creation timestamps, and more.
+  - Sysmon Configuration File was customized to ensure that relevant events (such as suspicious PowerShell execution and process injections) were captured.
 
 **4.2 Installing Splunk Universal Forwarder**
 The Splunk Universal Forwarder was installed on both the ADDC and Target Machine to forward Sysmon logs to the Splunk instance for centralized log analysis.
