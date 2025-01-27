@@ -2,7 +2,7 @@
 This project involves setting up a home lab environment using VirtualBox to simulate a small Active Directory infrastructure with two Windows 10 machines, a Kali Linux machine for penetration testing, and a Splunk machine for telemetry and log analysis. The environment was configured to simulate security attacks on an Active Directory domain, collect telemetry data, and analyze potential vulnerabilities.
 
 **Lab Configuration:**
-- VirtualBox Version: [Your Version]
+- VirtualBox Version: 7.0.20
 - Operating Systems:
   - Windows 10 (Target Machine) – Vulnerable machine for attack simulation.
   - Windows 10 (Domain Controller) – Promoted to Active Directory Domain Controller.
