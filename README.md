@@ -132,7 +132,7 @@ Logs from Sysmon and Splunk Universal Forwarder were monitored in Splunk:
 - Sysmon logs were invaluable for detecting advanced attack techniques, such as lateral movement or PowerShell abuse.
 - Splunk Universal Forwarder ensured continuous log forwarding from all machines, providing a comprehensive view of the system activity.
 
-##Conclusion
+## Conclusion
 This project demonstrated the setup and security testing of an Active Directory environment using VirtualBox. The penetration testing simulated common attack techniques and helped identify weaknesses in user account management and Active Directory security. The Sysmon and Splunk Universal Forwarder setup enhanced the ability to monitor, collect, and analyze telemetry data. The Splunk dashboards proved invaluable in detecting and analyzing malicious activities.
 
 **Key Takeaways:**
