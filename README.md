@@ -103,53 +103,48 @@ All machines were assigned static IPs to ensure reliable communication within th
 
 **4.2 Installing Splunk Universal Forwarder**
 The Splunk Universal Forwarder was installed on both the ADDC and Target Machine to forward Sysmon logs to the Splunk instance for centralized log analysis.
-Configured forwarding of logs, including Sysmon data, Windows Event Logs, and security events.
-Ensured that both machines were correctly sending telemetry data to the Splunk server for analysis.
+  - Configured forwarding of logs, including Sysmon data, Windows Event Logs, and security events.
+  - Ensured that both machines were correctly sending telemetry data to the Splunk server for analysis.
 
 **4.3 Configuration and Testing**
 Logs from Sysmon and Splunk Universal Forwarder were monitored in Splunk:
-Created custom Splunk queries to analyze Sysmon logs for signs of unusual or malicious behavior, such as:
-PowerShell command execution.
-Network connections to suspicious external IPs.
-Process creations that are out of the ordinary (e.g., by known malicious tools).
-Successfully analyzed and visualized Sysmon logs alongside Windows Event Logs to get a full picture of activities on both the Domain Controller and Target machine.
+- Created custom Splunk queries to analyze Sysmon logs for signs of unusual or malicious behavior, such as:
+  - PowerShell command execution.
+  - Network connections to suspicious external IPs.
+  - Process creations that are out of the ordinary (e.g., by known malicious tools).
+- Successfully analyzed and visualized Sysmon logs alongside Windows Event Logs to get a full picture of activities on both the Domain Controller and Target machine.
 
 ## Lab Security Insights & Results
 
 **5.1 Security Observations**
-The Brute Force Attack simulated using Crowbar successfully targeted weak or easily guessable passwords on user accounts. This highlights the importance of strong password policies.
-PowerShell-based attacks from Atomic Red Team demonstrated the need for:
-Proper Group Policy enforcement.
-Privilege escalation protections.
-Audit logging to track malicious activities.
-Sysmon significantly enhanced visibility into system-level activities, providing detailed insights into processes and network activities.
+- The Brute Force Attack simulated using Crowbar successfully targeted weak or easily guessable passwords on user accounts. This highlights the importance of strong password policies.
+- PowerShell-based attacks from Atomic Red Team demonstrated the need for:
+  - Proper Group Policy enforcement.
+  - Privilege escalation protections.
+  - Audit logging to track malicious activities.
+- Sysmon significantly enhanced visibility into system-level activities, providing detailed insights into processes and network activities.
 
 **5.2 Telemetry Analysis**
-The Splunk dashboards provided clear insights into the attack behavior, including:
-Failed login attempts.
-Account lockouts due to brute-force attempts.
-PowerShell activity associated with the execution of Atomic Red Team tests.
-Sysmon logs were invaluable for detecting advanced attack techniques, such as lateral movement or PowerShell abuse.
-Splunk Universal Forwarder ensured continuous log forwarding from all machines, providing a comprehensive view of the system activity.
+- The Splunk dashboards provided clear insights into the attack behavior, including:
+  - Failed login attempts.
+  - Account lockouts due to brute-force attempts.
+  - PowerShell activity associated with the execution of Atomic Red Team tests.
+- Sysmon logs were invaluable for detecting advanced attack techniques, such as lateral movement or PowerShell abuse.
+- Splunk Universal Forwarder ensured continuous log forwarding from all machines, providing a comprehensive view of the system activity.
 
 ##Conclusion
 This project demonstrated the setup and security testing of an Active Directory environment using VirtualBox. The penetration testing simulated common attack techniques and helped identify weaknesses in user account management and Active Directory security. The Sysmon and Splunk Universal Forwarder setup enhanced the ability to monitor, collect, and analyze telemetry data. The Splunk dashboards proved invaluable in detecting and analyzing malicious activities.
 
 **Key Takeaways:**
-Always use strong password policies and MFA to protect user accounts.
-Regularly monitor Windows Event Logs, Sysmon logs, and Splunk to identify suspicious activities.
-Use tools like Atomic Red Team to simulate real-world attacks and test your defenses.
-Implement Group Policy Objects (GPOs) to enforce security best practices across your domain.
+- Always use strong password policies and MFA to protect user accounts.
+- Regularly monitor Windows Event Logs, Sysmon logs, and Splunk to identify suspicious activities.
+- Use tools like Atomic Red Team to simulate real-world attacks and test your defenses.
+- Implement Group Policy Objects (GPOs) to enforce security best practices across your domain.
 
 ## Future Enhancements
-Expand Telemetry:
-Include additional tools like OSQuery or Zeek for enhanced visibility into system behavior.
-
-Simulate Advanced Attacks:
-Implement lateral movement techniques, including Pass-the-Hash and Kerberos ticket attacks.
-
-Integrate SIEM Systems:
-Further enhance Splunk by integrating additional SIEM features or testing with a Blue Team for detection response.
+- Expand Telemetry: Include additional tools like OSQuery or Zeek for enhanced visibility into system behavior.
+- Simulate Advanced Attacks: Implement lateral movement techniques, including Pass-the-Hash and Kerberos ticket attacks.
+- Integrate SIEM Systems: Further enhance Splunk by integrating additional SIEM features or testing with a Blue Team for detection response.
 
 ## Files & Tools Used
 
