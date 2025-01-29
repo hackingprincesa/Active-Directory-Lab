@@ -18,7 +18,7 @@ This project involves setting up a home lab environment using VirtualBox to simu
  
 ## Environment Setup
 
-**1.1 Virtual Machine Configuration**
+**Virtual Machine Configuration**
 
 Windows 10 (Target Machine):
   - Installed Windows 10 and configured a static IP.
@@ -37,19 +37,18 @@ Splunk:
   - Installed Splunk for collecting logs and telemetry data.
   - Configured Splunk to capture security-related events from the Active Directory Domain Controller and the target machine.
 
-1.2 Network Configuration
+**Network Configuration**
 All machines were assigned static IPs to ensure reliable communication within the isolated lab network.
 
  ## Active Directory Domain Setup
  
-**2.1 Domain Controller Configuration**
+**Domain Controller Configuration**
 - Windows 10 (Domain Controller) was promoted to a Domain Controller:
   - Installed Active Directory Domain Services (AD DS).
   - Promoted the machine to a domain controller for the domain: lab.local.
   - Configured DNS for the domain and ensured DNS resolution was functioning between machines.
 
-**2.2 Organizational Units (OUs) & User Management**
-
+**Organizational Units (OUs) & User Management**
 - Created several Organizational Units (OUs) within Active Directory:
   - Users OU: To store user accounts.
   - Admins OU: For administrative user accounts and groups.
@@ -61,19 +60,19 @@ All machines were assigned static IPs to ensure reliable communication within th
   - Disabled accounts for test scenarios.
   - Granted permissions to other servers to join the domain.
 
-**2.3 Domain Controller Testing**
+**Domain Controller Testing**
 - Successfully joined the target machine to the domain (lab.local).
 - Ensured replication of AD information across all domain controllers.
 - Verified Group Policy Objects (GPOs) were applied correctly.
  
  ## Penetration Testing
  
-**3.1 Simulating a Brute Force Attack (Crowbar on Kali Linux)**
+**Simulating a Brute Force Attack (Crowbar on Kali Linux)**
 - Crowbar was used to simulate a brute-force attack on a user account on the Windows 10 Target Machine.
   - The attack targeted the Windows login using common password lists.
   - Successfully gained access to the target machine after multiple attempts.
 
-**3.2 Telemetry Collection in Splunk**
+**Telemetry Collection in Splunk**
 - The Splunk server was configured to receive logs and telemetry data from:
   - Windows Event Logs on the Domain Controller.
   - Security logs for failed login attempts, account lockouts, and successful authentication.
@@ -83,30 +82,30 @@ All machines were assigned static IPs to ensure reliable communication within th
   - User account lockouts.
   - Attack attempts (e.g., brute force) against the domain.
 
-**3.3 Atomic Red Team Execution (PowerShell Attacks)**
+**Atomic Red Team Execution (PowerShell Attacks)**
 - Installed and configured Atomic Red Team on the Domain Controller for attack simulation.
 - PowerShell-based attacks were executed to simulate various adversary tactics:
   - Privilege escalation via exploiting misconfigured permissions.
   - Persistence mechanisms.
   - Command and Control (C2) communication testing.
 
-**3.4 Telemetry on Kali Linux**
+**Telemetry on Kali Linux**
 - The Kali Linux machine executed simulated attacks using Atomic Red Team tools.
 - The telemetry from the executed attacks (e.g., PowerShell exploitation) was captured in Splunk.
 
 ## Sysmon and Splunk Universal Forwarder Setup
 
-**4.1 Installing Sysmon**
+**Installing Sysmon**
 - Sysmon (System Monitor) was installed on both the ADDC (Domain Controller) and the Target Machine to provide enhanced monitoring and detailed event logging.
   - Sysmon captures detailed event data such as process creation, network connections, file creation timestamps, and more.
   - Sysmon Configuration File was customized to ensure that relevant events (such as suspicious PowerShell execution and process injections) were captured.
 
-**4.2 Installing Splunk Universal Forwarder**
+**Installing Splunk Universal Forwarder**
 The Splunk Universal Forwarder was installed on both the ADDC and Target Machine to forward Sysmon logs to the Splunk instance for centralized log analysis.
   - Configured forwarding of logs, including Sysmon data, Windows Event Logs, and security events.
   - Ensured that both machines were correctly sending telemetry data to the Splunk server for analysis.
 
-**4.3 Configuration and Testing**
+**Configuration and Testing**
 Logs from Sysmon and Splunk Universal Forwarder were monitored in Splunk:
 - Created custom Splunk queries to analyze Sysmon logs for signs of unusual or malicious behavior, such as:
   - PowerShell command execution.
@@ -116,7 +115,7 @@ Logs from Sysmon and Splunk Universal Forwarder were monitored in Splunk:
 
 ## Lab Security Insights & Results
 
-**5.1 Security Observations**
+**Security Observations**
 - The Brute Force Attack simulated using Crowbar successfully targeted weak or easily guessable passwords on user accounts. This highlights the importance of strong password policies.
 - PowerShell-based attacks from Atomic Red Team demonstrated the need for:
   - Proper Group Policy enforcement.
@@ -124,7 +123,7 @@ Logs from Sysmon and Splunk Universal Forwarder were monitored in Splunk:
   - Audit logging to track malicious activities.
 - Sysmon significantly enhanced visibility into system-level activities, providing detailed insights into processes and network activities.
 
-**5.2 Telemetry Analysis**
+**Telemetry Analysis**
 - The Splunk dashboards provided clear insights into the attack behavior, including:
   - Failed login attempts.
   - Account lockouts due to brute-force attempts.
