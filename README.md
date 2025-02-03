@@ -44,6 +44,7 @@ Refer to the screenshot below, which shows what we've just done. You should now 
 1. Setup Communications
    - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
    - Refer to screenshot below for configuration details.
+
 ![NAT](https://github.com/user-attachments/assets/6a33e514-410c-4b33-b234-18148c97bb0b)
 
    - Click "Apply"
