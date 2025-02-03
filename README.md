@@ -27,8 +27,10 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 2. Install Oracle VM VirtualBox Manager
 Download the appropiate version from https://www.virtualbox.org/virtualbox.org
 
-![lab set up](https://github.com/user-attachments/assets/2353641f-8b70-4685-8fe0-b1a8411fdffc)
+![lab set up](https://github.com/user-attachments/assets/375461e1-3f1d-47d1-acf7-153944cede9c)
 
+
+lab set up
 **Phase 2: Configure the Network**
 
 **Phase 3: Active Directory and Control Domain**
