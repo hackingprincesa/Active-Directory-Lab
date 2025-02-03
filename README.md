@@ -112,6 +112,7 @@ The steps above did not work for me as I had a different configuration file, but
 1. Analyze Attack with Splunk
 
 ## References & Resources:
+- <a href="https://www.youtube.com/watch?v=mWqYyl89QaY&t=541s">Active Directory Project by MyDFIR</a>
 - Microsoft Active Directory Documentation
 - Splunk Documentation
 - <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
