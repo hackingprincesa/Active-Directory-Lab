@@ -14,7 +14,6 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 - Atomic Red Team: For simulating adversary tactics via PowerShell.
 - Sysmon: For monitoring and logging system activity on Windows.
 - Splunk Universal Forwarder: For collecting and forwarding log data to Splunk.
-- VirtualBox: For virtualization.
 
 ## Step-by-Step Guide:
 
