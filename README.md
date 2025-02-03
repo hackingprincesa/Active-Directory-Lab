@@ -7,11 +7,13 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 
 ## Tools:
 - Oracle VM VirtualBox Manager: For creating and managing virtual machines (VMs).
-- Splunk Server: For log analysis and monitoring.
-- Crowbar: For Brute Force Attack.
-- Atomic Red Team: For simulating attack techniques via PowerShell.
-- Sysmon: For system monitoring.
-- Splunk Universal Forwarder: For log forwarding.
+- Active Directory: For centralized domain management and user authentication.
+- PowerShell: For scripting and automation of tasks.
+- Splunk Server: For log analysis and monitoring, and SIEM to collect and analyze system logs.
+- Crowbar: For brute force attacks.
+- Atomic Red Team: For simulating adversary tactics via PowerShell.
+- Sysmon: For monitoring and logging system activity on Windows.
+- Splunk Universal Forwarder: For collecting and forwarding log data to Splunk.
 - VirtualBox: For virtualization.
 
 ## Step-by-Step Guide:
