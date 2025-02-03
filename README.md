@@ -120,10 +120,25 @@ Update static IP to 192.168.10.100
 
 Install Splunk Universal Forwarder on target-PC
    - Run Splunk VM (this will not work if VM is not running)
-   - In the target-PC, open the browser and type 192.168.10.10:8000 in
+   - In the target-PC, open the browser and type 192.168.10.10:8000 blah blah fix blah blah
+   - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a> and 
 
 Install Sysmon
-   - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a> 
+   - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
+   - Navigate to <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml">Sysmon's Configuration File</a> on GitHub
+   - Click "raw"
+   - Save the file
+   - Extract the Sysmon file
+   - Open PowerShell as administrator
+   - Copy and Paste the URL of the extracted directory here
+   - Run .\Sysmon64.exe -i ..\sysmonconfig.xml
+   - Click "Agree"
+
+Configure Splunk Unviersal Forwarder to specify what data we want to send to our Splunk Server
+   - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local
+   - Open Notepad as administrator and enter the following:
+   - insert ss***
+   - Save file as 
    
 5. Configure Windows Server 
 
