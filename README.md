@@ -53,11 +53,38 @@ Refer to the screenshot below, which shows what we've just done. You should now 
 
 ![NAT config](https://github.com/user-attachments/assets/90bdf6cc-0d5e-4c84-90c3-9c53c53230e9)
 
+   - Repeat the above 2 steps for each VM, except for Splunk.
+   - Next, run Splunk VM and type sudo nano /etc/netplan/00-installer-config.yaml
+
+2. Install Splunk
+   - Navigate to [splunk](https://www.splunk.com/ > download free trial of Splunk Enterprise
+   - Navigate back to Splunk and run sudo apt-get install virtualbox-guest-additions-iso
+  
+3. Configure Windows Machine
+   
+4. Configure Windows Server 
+
 **Phase 3: Active Directory and Control Domain**
+
+1. Setup Active Directory Domain Services on Windows Server
+   
+2. Windows 10 Machine Joins New Domain
 
 **Phase 4: Brute Force Attack**
 
+1. Configure Network
+   
+2. Set up the Attack
+   
+3. Enable RDP
+   
+4. Attack
+   
+5. ART
+
 **Phase 5: Splunk Telemetry**
+
+1. Analyze Attack with Splunk
 
 ## References & Resources:
 - Microsoft Active Directory Documentation
