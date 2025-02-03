@@ -27,7 +27,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 
 ***2. Install Oracle VM VirtualBox Manager***
 
-Download the appropiate version from <a href="https://www.virtualbox.org/">VirtualBox</a>
+   - Download the appropiate version from <a href="https://www.virtualbox.org/">VirtualBox</a>
 
 ***3. Install Windows 10***
    - Navigate to <a href="https://www.microsoft.com/en-ca/software-download/windows10ISO">Microsoft</a> to install the compatible version.
