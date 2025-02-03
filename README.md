@@ -18,6 +18,7 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 ## Step-by-Step Guide:
 
 **Phase 1: Environment Install and Configuration**
+
 1. Draw a diagram of the environment using a tool such as <a href="https://app.diagrams.net/">draw.io</a>
 
 A lab diagram helps organize and plan the setup, showing how different systems, tools, and network elements are connected. This aids in troubleshooting, understanding workflows, and ensuring everything is properly configured for experiments or security testing.
@@ -56,6 +57,7 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 
 
 **Phase 2: Configure the Network**
+
 1. Setup Communications
    - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
    - Refer to screenshot below for configuration details.
@@ -69,11 +71,27 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 ![NAT config](https://github.com/user-attachments/assets/90bdf6cc-0d5e-4c84-90c3-9c53c53230e9)
 
    - Repeat the above 2 steps for each VM, except for Splunk.
-   - Next, run Splunk VM and type sudo nano /etc/netplan/00-installer-config.yaml
+   - Next, start Splunk VM and run sudo nano /etc/netplan/00-installer-config.yaml
+   - Modify to look like:
+network: 
+  ethernet:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.10.10/24]
+      nameservers:
+          addresses: [8.8.8.8]
+      routes:
+          - to: default
+            via: 192.168.10.1
+  version: 2
+   - Run sudo netplan apply to make changes.
+   - Run ip a, which will show you the IP address set to 192.168.10.10/24
+   - Verify connection by running ping google.com
+   - 
 
 2. Install Splunk
    - Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
-   - Navigate back to Splunk and run sudo apt-get install virtualbox-guest-additions-iso
+   - Navigate back to Splunk VM and run sudo apt-get install virtualbox-guest-additions-iso
 
   
 3. Configure Windows Machine
