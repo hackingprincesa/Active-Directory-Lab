@@ -78,7 +78,7 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
    - Run ip a to verify IP address persists and is set to 192.168.10.10/24
    - Verify connection by running ping google.com
      
-Unfortunately, the steps above did not work for me as I had a different configuration file, but I was able to troubleshoot the issue. The configuration file was 50-cloud-init.yaml, meaning our IP updates wouldn’t persist after a reboot. To resolve this, I created a custom 00-installer-config.yaml file inside /etc/netplan/ and configured it with the updated IP. This ensured the static IP would remain after a reboot instead of reverting to DHCP. I also had to back up and delete the old 50-cloud-init.yaml file. Reboot and verify IP address once done.
+Unfortunately, the steps above did not work for me as I had a different configuration file, but I was able to troubleshoot the issue. The configuration file on my Splunk server was 50-cloud-init.yaml, meaning our IP updates wouldn’t persist after a reboot. To resolve this, I created a custom 00-installer-config.yaml file inside /etc/netplan/ and configured it with the updated IP. This ensured the static IP would remain after a reboot instead of reverting to DHCP. I also had to back up and delete the old 50-cloud-init.yaml file. Reboot and verify IP address once done.
 
 2. Install Splunk
    - Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
