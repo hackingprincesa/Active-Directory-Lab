@@ -28,12 +28,22 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 Download the appropiate version from <a href="https://www.virtualbox.org/">VirtualBox</a>
 
 3. Install Windows 10
+   - Navigate to <a href="https://www.microsoft.com/en-ca/software-download/windows10ISO">Microsoft</a> to install the compatible version.
+   - In VirtualBox, click "Add" to create a new VM and follow the installation prompts.
+      
+5. Install Kali Linux
+   - Download <a href="https://www.kali.org/><Kali Linux</a> 
+   - Extract Kali Linux
+        If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
+   - Import Kali Linux into VirtualBox
+   - Run the VM
 
-4. Install Kali Linux
+7. Install Windows Server
+   - Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
+   - Download 64-bit version
+   - 
 
-5. Install Windows Server
-
-6. Install Ubuntu Server
+9. Install Ubuntu Server
 
 Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server."
 
