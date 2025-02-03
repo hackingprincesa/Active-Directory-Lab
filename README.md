@@ -57,8 +57,9 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
    - Next, run Splunk VM and type sudo nano /etc/netplan/00-installer-config.yaml
 
 2. Install Splunk
-   - Navigate to [splunk](https://www.splunk.com/ > download free trial of Splunk Enterprise
+   - Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
    - Navigate back to Splunk and run sudo apt-get install virtualbox-guest-additions-iso
+
   
 3. Configure Windows Machine
    
