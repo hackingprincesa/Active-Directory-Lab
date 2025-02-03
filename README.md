@@ -89,6 +89,6 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 ## References & Resources:
 - Microsoft Active Directory Documentation
 - Splunk Documentation
-- < a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
+- <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
 - Sysmon Documentation
 - Splunk Universal Forwarder Documentation
