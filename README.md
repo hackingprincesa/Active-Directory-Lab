@@ -32,7 +32,7 @@ Download the appropiate version from <a href="https://www.virtualbox.org/">Virtu
    - In VirtualBox, click "Add" to create a new VM and follow the installation prompts.
       
 5. Install Kali Linux
-   - Download <a href="https://www.kali.org/"><Kali Linux</a> 
+   - Download <a href="https://www.kali.org/">Kali Linux</a> 
    - Extract Kali Linux
         If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
    - Import Kali Linux into VirtualBox
