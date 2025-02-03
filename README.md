@@ -29,6 +29,11 @@ Download the appropiate version from https://www.virtualbox.org/virtualbox.org
 
 ![lab set up](https://github.com/user-attachments/assets/2353641f-8b70-4685-8fe0-b1a8411fdffc)
 
+**Phase 2: Configure the Network**
+**Phase 3: Active Directory and Control Domain**
+**Phase 4: Brute Force Attack**
+**Phase 5: Splunk Telemetry**
+
 ## References & Resources:
 - Microsoft Active Directory Documentation
 - Splunk Documentation
