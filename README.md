@@ -44,7 +44,7 @@ Download the appropiate version from <a href="https://www.virtualbox.org/">Virtu
    - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
 
 9. Install Ubuntu Server
-    - Download <a href="https://ubuntu.com/server"><Ubuntu Server</a>
+    - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
     - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
     - Once installed, reboot.
     - Once rebooted, run sudo apt-get update && sudo apt-get upgrade -y
