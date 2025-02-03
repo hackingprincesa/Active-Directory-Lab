@@ -5,7 +5,7 @@ This project involves setting up a home lab environment using VirtualBox to simu
 
 The lab aims to provide a hands-on experience in setting up a virtualized environment for cybersecurity testing and exploration. Participants will create and configure multiple virtual machines (VMs) running Windows 10, Kali Linux, Windows Server, and Ubuntu Server. The lab focuses on teaching essential skills such as network configuration, security tool installation (e.g., Splunk, Sysmon), endpoint monitoring, and conducting security tests (including brute force attacks with Crowbar). Additional objectives include joining Windows machines to an Active Directory domain, enabling Remote Desktop, and automating tasks using PowerShell scripting. Overall, the lab offers practical exposure to cybersecurity concepts, tools, and techniques in a controlled, safe environment.
 
-**Tools:**
+## Tools:
 - Oracle VM VirtualBox Manager: For creating and managing virtual machines (VMs).
 - Splunk Server: For log analysis and monitoring.
 - Crowbar: For Brute Force Attack.
@@ -14,7 +14,11 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 - Splunk Universal Forwarder: For log forwarding.
 - VirtualBox: For virtualization.
 
-## References & Resources
+## Step-by-Step Guide:
+
+**Step 1: Environment Install and Configuration**
+
+## References & Resources:
 - Microsoft Active Directory Documentation
 - Splunk Documentation
 - Atomic Red Team GitHub
