@@ -83,11 +83,49 @@ The steps above did not work for me as I had a different configuration file, but
 2. Install Splunk
    - Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
    - Navigate back to Splunk VM and run sudo apt-get install virtualbox-guest-additions-iso
+   - Navigate to Devices > Shared Folders > Shared Folders Settings
+   - Run sudo reboot
+   - Run sudo apt-get install virtualbox-guest-utils
+   - Reboot
+   - Run sudo adduser <your username> vboxsf
+   Create a new directory called "AD Project"
+   - Run mkdir share** to create a new directory called "AD Project".
 
+Now run sudo mount -t vboxsf -o uid=1000,gid=1000 <directory name where .deb file is located> share/.
+
+Verify completion with ls -la, "Share" should be highlighted. Navigate to the share directory using cd share/ and run ls -la once more to view all the files listed in that directory. Install splunk by running sudo dpkg -i splu<hit tab to auto-complete>
+
+Navigate via cd /opt/splunk/ and run ls -la. Change into the user Splunk by running sudo -u splunk bash. Run cd bin/. Run ./start splunk, to continue press q followed by y and [ENTER].
+
+To finalize this step, exit, cd bin, and finally, sudo ./splunk enable boot-start -user splunk. This will allow Splunk to start on boot as the user Splunk.
+
+blah blah blah
   
 3. Configure Windows Machine
    
-4. Configure Windows Server 
+Rename the PC
+   - In the Start Menu search, search "About"
+   - Rename PC to "target-PC"
+     
+Update static IP to 192.168.10.100
+   - In command prompt, run IP config to view current IPv4
+   - Navigate to network icon at the bottom right of the window
+   - Open Network & Internet Settings
+   - Change adapter options
+   - Right click the adapter, select Properties
+   - Select Internet Protocol Version 4 (TCP/IPv4) Properties
+   - Select Use the following IP address
+   - Configure as shown below **insert ss**
+   - Run IP config to view updated IPv$
+
+Install Splunk Universal Forwarder on target-PC
+   - Run Splunk VM (this will not work if VM is not running)
+   - In the target-PC, open the browser and type 192.168.10.10:8000 in
+
+Install Sysmon
+   - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a> 
+   
+5. Configure Windows Server 
 
 **Phase 3: Active Directory and Control Domain**
 
