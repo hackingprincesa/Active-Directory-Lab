@@ -41,6 +41,16 @@ Refer to the screenshot below, which shows what we've just done. You should now 
 
 
 **Phase 2: Configure the Network**
+1. Setup Communications
+   - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
+   - Refer to screenshot below for configuration details.
+![NAT](https://github.com/user-attachments/assets/6a33e514-410c-4b33-b234-18148c97bb0b)
+
+   - Click "Apply"
+   - Navigate to each VM > Settings > Network
+   - Refer to screenshot below for configuration details.
+
+![NAT config](https://github.com/user-attachments/assets/90bdf6cc-0d5e-4c84-90c3-9c53c53230e9)
 
 **Phase 3: Active Directory and Control Domain**
 
