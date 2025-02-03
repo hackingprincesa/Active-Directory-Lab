@@ -17,9 +17,9 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 
 ## Step-by-Step Guide:
 
-**Phase 1: Environment Install and Configuration**
+***Phase 1: Environment Install and Configuration***
 
-1. Draw a diagram of the environment using a tool such as <a href="https://app.diagrams.net/">draw.io</a>
+**1. Draw a diagram of the environment using a tool such as <a href="https://app.diagrams.net/">draw.io</a>**
 
 A lab diagram helps organize and plan the setup, showing how different systems, tools, and network elements are connected. This aids in troubleshooting, understanding workflows, and ensuring everything is properly configured for experiments or security testing.
 
@@ -56,9 +56,9 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 ![lab set up](https://github.com/user-attachments/assets/07ac8df9-b70f-4338-8727-55a09dd50412)
 
 
-**Phase 2: Configure the Network**
+***Phase 2: Configure the Network***
 
-1. Setup Communications
+**1. Setup Communications**
    - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
    - Refer to screenshot below for configuration details.
 
@@ -80,7 +80,8 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
      
 The steps above did not work for me as I had a different configuration file, but this turned out to be a great opportunity to troubleshoot and learn more. The configuration file on my Splunk server was 50-cloud-init.yaml, meaning our IP updates wouldn’t persist after a reboot. To resolve this, I created a custom 00-installer-config.yaml file inside /etc/netplan/ and configured it with the updated IP. This ensured the static IP would remain after a reboot instead of reverting to DHCP. I also had to back up and delete the old 50-cloud-init.yaml file. Reboot and verify IP address once done.
 
-2. Install Splunk
+**2. Install Splunk**
+   
    - Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
    - Navigate back to Splunk VM and run sudo apt-get install virtualbox-guest-additions-iso
    - Navigate to Devices > Shared Folders > Shared Folders Settings
@@ -101,7 +102,7 @@ To finalize this step, exit, cd bin, and finally, sudo ./splunk enable boot-star
 
 blah blah blah
   
-3. Configure Windows Machine
+**3. Configure Windows Machine**
    
 Rename the PC
    - In the Start Menu search, search "About"
