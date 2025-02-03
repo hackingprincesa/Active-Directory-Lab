@@ -17,34 +17,34 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 
 ## Step-by-Step Guide:
 
-***Phase 1: Environment Install and Configuration***
+**Phase 1: Environment Install and Configuration**
 
-**1. Draw a diagram of the environment using a tool such as <a href="https://app.diagrams.net/">draw.io</a>**
+***1. Draw a diagram of the environment using a tool such as <a href="https://app.diagrams.net/">draw.io</a>***
 
 A lab diagram helps organize and plan the setup, showing how different systems, tools, and network elements are connected. This aids in troubleshooting, understanding workflows, and ensuring everything is properly configured for experiments or security testing.
 
 ![AD Lab Diagram](https://github.com/user-attachments/assets/d0d1021c-fe93-40a5-9367-1aef43656720)
 
-2. Install Oracle VM VirtualBox Manager
+***2. Install Oracle VM VirtualBox Manager***
 Download the appropiate version from <a href="https://www.virtualbox.org/">VirtualBox</a>
 
-3. Install Windows 10
+***3. Install Windows 10***
    - Navigate to <a href="https://www.microsoft.com/en-ca/software-download/windows10ISO">Microsoft</a> to install the compatible version.
    - In VirtualBox, click "Add" to create a new VM and follow the installation prompts.
       
-5. Install Kali Linux
+***4. Install Kali Linux***
    - Download <a href="https://www.kali.org/">Kali Linux</a> 
    - Extract Kali Linux
         If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
    - Import Kali Linux into VirtualBox
    - Run the VM
 
-7. Install Windows Server
+***5. Install Windows Server***
    - Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
    - Download 64-bit edition
    - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
 
-9. Install Ubuntu Server
+***6. Install Ubuntu Server***
     - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
     - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
     - Once installed, reboot.
@@ -56,9 +56,9 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 ![lab set up](https://github.com/user-attachments/assets/07ac8df9-b70f-4338-8727-55a09dd50412)
 
 
-***Phase 2: Configure the Network***
+**Phase 2: Configure the Network**
 
-**1. Setup Communications**
+***1. Setup Communications***
    - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
    - Refer to screenshot below for configuration details.
 
@@ -80,7 +80,7 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
      
 The steps above did not work for me as I had a different configuration file, but this turned out to be a great opportunity to troubleshoot and learn more. The configuration file on my Splunk server was 50-cloud-init.yaml, meaning our IP updates wouldn’t persist after a reboot. To resolve this, I created a custom 00-installer-config.yaml file inside /etc/netplan/ and configured it with the updated IP. This ensured the static IP would remain after a reboot instead of reverting to DHCP. I also had to back up and delete the old 50-cloud-init.yaml file. Reboot and verify IP address once done.
 
-**2. Install Splunk**
+***2. Install Splunk***
    
    - Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
    - Navigate back to Splunk VM and run sudo apt-get install virtualbox-guest-additions-iso
@@ -102,7 +102,7 @@ To finalize this step, exit, cd bin, and finally, sudo ./splunk enable boot-star
 
 blah blah blah
   
-**3. Configure Windows Machine**
+***3. Configure Windows Machine***
    
 Rename the PC
    - In the Start Menu search, search "About"
@@ -141,7 +141,7 @@ Configure Splunk Unviersal Forwarder to specify what data we want to send to our
    - insert ss***
    - Save file as 
    
-5. Configure Windows Server 
+***5. Configure Windows Server***
 
 **Phase 3: Active Directory and Control Domain**
 
@@ -151,15 +151,15 @@ Configure Splunk Unviersal Forwarder to specify what data we want to send to our
 
 **Phase 4: Brute Force Attack**
 
-1. Configure Network
+***1. Configure Network***
    
-2. Set up the Attack
+***2. Set up the Attack***
    
-3. Enable RDP
+***3. Enable RDP***
    
-4. Attack
+***4. Attack***
    
-5. ART
+***5. ART***
 
 **Phase 5: Splunk Telemetry**
 
