@@ -19,6 +19,7 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 
 **Phase 1: Environment Install and Configuration**
 1. Draw a diagram of the environment using a tool such as draw.io
+
 A lab diagram helps organize and plan the setup, showing how different systems, tools, and network elements are connected. This aids in troubleshooting, understanding workflows, and ensuring everything is properly configured for experiments or security testing.
 
 ![AD Lab Diagram](https://github.com/user-attachments/assets/d0d1021c-fe93-40a5-9367-1aef43656720)
