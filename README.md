@@ -24,9 +24,10 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 
 ![AD Lab Diagram](https://github.com/user-attachments/assets/d0d1021c-fe93-40a5-9367-1aef43656720)
 
-2.. Install Oracle VM VirtualBox Manager
+2. Install Oracle VM VirtualBox Manager
 Download the appropiate version from https://www.virtualbox.org/virtualbox.org
 
+![lab set up](https://github.com/user-attachments/assets/2353641f-8b70-4685-8fe0-b1a8411fdffc)
 
 ## References & Resources:
 - Microsoft Active Directory Documentation
