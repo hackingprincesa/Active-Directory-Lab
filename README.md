@@ -18,7 +18,7 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 ## Step-by-Step Guide:
 
 **Phase 1: Environment Install and Configuration**
-1. Draw a diagram of the environment using a tool such as draw.io
+1. Draw a diagram of the environment using a tool such as <a href="https://app.diagrams.net/">draw.io</a>
 
 A lab diagram helps organize and plan the setup, showing how different systems, tools, and network elements are connected. This aids in troubleshooting, understanding workflows, and ensuring everything is properly configured for experiments or security testing.
 
