@@ -31,23 +31,23 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 
 ***3. Install Windows 10***
 - Navigate to <a href="https://www.microsoft.com/en-ca/software-download/windows10ISO">Microsoft</a> to install the compatible version.
-       - Select the edition
-       - Select the product language
-       - Select 64-bit Download
-       - Once the download pop up appears, select "Create installation media (USB flash drive, DVD, or ISO file) for another PC"
-       - Select "ISO file" when pop up asks "Choose which media to use"
-       - Save ISO file
-- In VirtualBox, click "New" to create a new VM 
-       - Name: choose a name for VM (I named it Windows; please note, that this machine will be used as our target machine)
-       - Folder: select where you want VM to live
-       - ISO Image: select ISO image that you just downloaded
-       - Check "Skip Unattended Installation" to install OS manually
+   - Select the edition
+   - Select the product language
+   - Select 64-bit Download
+   - Once the download pop up appears, select "Create installation media (USB flash drive, DVD, or ISO file) for another PC"
+   - Select "ISO file" when pop up asks "Choose which media to use"
+   - Save ISO file
+- In VirtualBox, click "New" to create a new VM
+   - Name: choose a name for VM (I named it Windows; please note, that this machine will be used as our target machine)
+   - Folder: select where you want VM to live
+   - ISO Image: select ISO image that you just downloaded
+   - Check "Skip Unattended Installation" to install OS manually
 
   ![Screen Shot 2025-02-04 at 5 15 38 PM](https://github.com/user-attachments/assets/d123ae11-c032-4ebc-baa8-40559718ec41)
   
   - Configure VM specifications (this can vary depending on your computer's specifications):
-          - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
-          - Finish
+    - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
+    - Finish
             
    - Start VM and follow the installation prompts
       - Select "I don't have a product key"
