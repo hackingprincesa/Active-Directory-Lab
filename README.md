@@ -38,7 +38,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
        - Select "ISO file" when pop up asks "Choose which media to use"
        - Save ISO file
    - In VirtualBox, click "New" to create a new VM 
-       - Name: choose a name for VM
+       - Name: choose a name for VM (I named it Windows; please note, that this machine will be used as our target machine)
        - Folder: select where you want VM to live
        - ISO Image: select ISO image that you just downloaded
        - Check "Skip Unattended Installation" to install OS manually
@@ -77,7 +77,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
       - Fill out the form
       - Select "64-bit edition" under "ISO downloads"
    - Once downloaded, go to VirtualBox and select "New" to create a new VM
-       - Name: choose a name for VM
+       - Name: choose a name for VM (I named it ADDC since we will be using this as our Active Directory Domain Controller)
        - Folder: select where you want VM to live
        - ISO Image: select ISO image that you just downloaded
        - Check "Skip Unattended Installation" to install OS manually
@@ -95,14 +95,27 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
    - Log in with recently created password
       - Select "No" when asked "Do you want to allow your PC to be discoverable by oth PCs and devices on this network?"
 
-***6. Install Ubuntu Server*** 
-    - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
-       - This Ubuntu Server will be used as our Splunk Server
-    - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
-    - Once installed, reboot.
-    - Once rebooted, run sudo apt-get update && sudo apt-get upgrade -y
-    - Once completed, hit "Enter" 
 
+***6. Install Ubuntu Server***
+    - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
+    - Once downloaded, go to VirtualBox and select "New" to create a new VM
+       - Name: choose a name for VM (I named it Splunk since we will be using this as our Splunk Server)
+       - Folder: select where you want VM to live
+       - ISO Image: select ISO image that you just downloaded
+       - Check "Skip Unattended Installation" to install OS manually
+   - Configure VM specifications (this can vary depending on your computer's specifications):
+       - Select 8000 MB RAM for base memory, 2 CPU for processors, 100 GB for virtual hard disk
+          - Splunk will require more specs as it will be ingesting data and we'll be running searches on it  
+       - Finish
+    - Start the VM
+       - Select "Try or Install Ubuntu Server"
+       - Follow installation prompts; leave as default
+       - Fill out "Profile Setup" form, which is where you will choose your credentials
+    - Once installed, select "Reboot Now"
+    - Click "Enter" when "Failed unmounting" error pops up
+    - Once rebooted, logon with recently created credentials
+    - run sudo apt-get update && sudo apt-get upgrade -y
+    - Once completed, hit "Enter" 
 
 Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server."
 
