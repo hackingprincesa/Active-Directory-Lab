@@ -49,12 +49,12 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
     - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
     - Finish
             
-   - Start VM and follow the installation prompts
-      - Select "I don't have a product key"
-      - Select "Windows 10 Pro"
-      - Accept the license terms
-      - Select "Custom: Install Windows only (advanced)"
-      - Select "Next" to allow Windows to install 
+- Start VM and follow the installation prompts
+   - Select "I don't have a product key"
+   - Select "Windows 10 Pro"
+   - Accept the license terms
+   - Select "Custom: Install Windows only (advanced)"
+   - Select "Next" to allow Windows to install 
       
 ***4. Install Kali Linux***
 - Download <a href="https://www.kali.org/">Kali Linux</a>
