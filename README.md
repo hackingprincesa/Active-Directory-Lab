@@ -47,6 +47,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
       - Configure VM specifications (this can vary depending on your computer's specifications):
           - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
           - Finish
+            
    - Start VM and follow the installation prompts
       - Select "I don't have a product key"
       - Select "Windows 10 Pro"
@@ -55,12 +56,21 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
       - Select "Next" to allow Windows to install 
       
 ***4. Install Kali Linux***
-   - Download <a href="https://www.kali.org/">Kali Linux</a> 
+   - Download <a href="https://www.kali.org/">Kali Linux</a>
+      - Select the Pre-Built Virtual Machine
+      - Choose either 64-bit (preferred) or 32-bit depending on your machine
+         - To verify your machines specifications, select Windows key > type "System" > select "System Information" > view "System Type" 
+      - Click 64-bit, then choose VirtualBox 64
    - Extract Kali Linux
 
      If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
-   - Import Kali Linux into VirtualBox
-   - Run the VM
+   - Once extracted, double click on the vbox file so that it's automatically imported into VirtualBox
+
+![Screen Shot 2025-02-04 at 5 40 31 PM 1](https://github.com/user-attachments/assets/589bad71-9034-4702-955e-f566caea0a4f)
+
+     
+   - Run the VM by clicking "Start"
+   - Log in with default credentials: kali/kali
 
 ***5. Install Windows Server***
    - Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
