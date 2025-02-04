@@ -40,7 +40,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 - In VirtualBox, click "New" to create a new VM
    - Name: choose a name for VM (I named it Windows)
 
-     Please note, that this machine will be used as our target machine)
+        Please note, that this machine will be used as our target machine)
    - Folder: select where you want VM to live
    - ISO Image: select ISO image that you just downloaded
    - Check "Skip Unattended Installation" to install OS manually
