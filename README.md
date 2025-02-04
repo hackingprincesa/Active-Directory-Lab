@@ -97,17 +97,17 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 
 
 ***6. Install Ubuntu Server***
-    - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
+- Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
     - Once downloaded, go to VirtualBox and select "New" to create a new VM
        - Name: choose a name for VM (I named it Splunk since we will be using this as our Splunk Server)
        - Folder: select where you want VM to live
        - ISO Image: select ISO image that you just downloaded
        - Check "Skip Unattended Installation" to install OS manually
-   - Configure VM specifications (this can vary depending on your computer's specifications):
+- Configure VM specifications (this can vary depending on your computer's specifications):
        - Select 8000 MB RAM for base memory, 2 CPU for processors, 100 GB for virtual hard disk
           - Splunk will require more specs as it will be ingesting data and we'll be running searches on it  
        - Finish
-    - Start the VM
+- Start the VM
        - Select "Try or Install Ubuntu Server"
        - Follow installation prompts; leave as default
        - Fill out "Profile Setup" form, which is where you will choose your credentials
