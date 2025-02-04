@@ -27,24 +27,23 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 
 ***2. Install Oracle VM VirtualBox Manager***
 
-   - Download the compatible version from <a href="https://www.virtualbox.org/">VirtualBox</a>
+- Download the compatible version from <a href="https://www.virtualbox.org/">VirtualBox</a>
 
 ***3. Install Windows 10***
-   - Navigate to <a href="https://www.microsoft.com/en-ca/software-download/windows10ISO">Microsoft</a> to install the compatible version.
+- Navigate to <a href="https://www.microsoft.com/en-ca/software-download/windows10ISO">Microsoft</a> to install the compatible version.
        - Select the edition
        - Select the product language
        - Select 64-bit Download
        - Once the download pop up appears, select "Create installation media (USB flash drive, DVD, or ISO file) for another PC"
        - Select "ISO file" when pop up asks "Choose which media to use"
        - Save ISO file
-   - In VirtualBox, click "New" to create a new VM 
+- In VirtualBox, click "New" to create a new VM 
        - Name: choose a name for VM (I named it Windows; please note, that this machine will be used as our target machine)
        - Folder: select where you want VM to live
        - ISO Image: select ISO image that you just downloaded
        - Check "Skip Unattended Installation" to install OS manually
-         
          ![Screen Shot 2025-02-04 at 5 15 38 PM](https://github.com/user-attachments/assets/d123ae11-c032-4ebc-baa8-40559718ec41)
-      - Configure VM specifications (this can vary depending on your computer's specifications):
+  - Configure VM specifications (this can vary depending on your computer's specifications):
           - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
           - Finish
             
@@ -56,64 +55,62 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
       - Select "Next" to allow Windows to install 
       
 ***4. Install Kali Linux***
-   - Download <a href="https://www.kali.org/">Kali Linux</a>
-      - Select the Pre-Built Virtual Machine
-      - Choose either 64-bit (preferred) or 32-bit depending on your machine
-         - To verify your machines specifications, select Windows key > type "System" > select "System Information" > view "System Type" 
-      - Click 64-bit, then choose VirtualBox 64
-   - Extract Kali Linux
-
-     If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
-   - Once extracted, double click on the "vbox" file so that it's automatically imported into VirtualBox
+- Download <a href="https://www.kali.org/">Kali Linux</a>
+   - Select the Pre-Built Virtual Machine
+   - Choose either 64-bit (preferred) or 32-bit depending on your machine
+     - To verify your machines specifications, select Windows key > type "System" > select "System Information" > view "System Type"
+   - Click 64-bit, then choose VirtualBox 64
+- Extract Kali Linux
+   If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
+- Once extracted, double click on the "vbox" file so that it's automatically imported into VirtualBox
 
 ![Screen Shot 2025-02-04 at 5 40 31 PM 1](https://github.com/user-attachments/assets/589bad71-9034-4702-955e-f566caea0a4f)
 
-     
-   - Now, go to VirtualBox and run the Kali VM by clicking "Start"
-   - Log in with default credentials: kali/kali
+- Now, go to VirtualBox and run the Kali VM by clicking "Start"
+- Log in with default credentials: kali/kali
 
 ***5. Install Windows Server***
-   - Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
-      - Fill out the form
-      - Select "64-bit edition" under "ISO downloads"
-   - Once downloaded, go to VirtualBox and select "New" to create a new VM
-       - Name: choose a name for VM (I named it ADDC since we will be using this as our Active Directory Domain Controller)
-       - Folder: select where you want VM to live
-       - ISO Image: select ISO image that you just downloaded
-       - Check "Skip Unattended Installation" to install OS manually
-   - Configure VM specifications (this can vary depending on your computer's specifications):
-       - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
-       - Finish
-   - Start VM and follow the installation prompts
-      - Select "Install Now"
-      - Select "Windows Server 2022 Standard Evaluation (Desktop Experience)"
-      - Accept the license terms
-      - Select "Custom: Install Windows Microsoft Server Operating System only (advanced)"
-      - Select "Next" to allow Windows to install
-      - Once setup is completed, you will be prompted to create a password
-      - Select "Finish"
-   - Log in with recently created password
+- Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
+   - Fill out the form
+   - Select "64-bit edition" under "ISO downloads"
+- Once downloaded, go to VirtualBox and select "New" to create a new VM
+   - Name: choose a name for VM (I named it ADDC since we will be using this as our Active Directory Domain Controller)
+   - Folder: select where you want VM to live
+   - ISO Image: select ISO image that you just downloaded
+   - Check "Skip Unattended Installation" to install OS manually
+- Configure VM specifications (this can vary depending on your computer's specifications):   
+   - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
+   - Finish
+- Start VM and follow the installation prompts
+   - Select "Install Now"
+   - Select "Windows Server 2022 Standard Evaluation (Desktop Experience)"
+   - Accept the license terms
+   - Select "Custom: Install Windows Microsoft Server Operating System only (advanced)"
+   - Select "Next" to allow Windows to install
+   - Once setup is completed, you will be prompted to create a password
+   - Select "Finish"
+- Log in with recently created password
       - Select "No" when asked "Do you want to allow your PC to be discoverable by oth PCs and devices on this network?"
 
 
 ***6. Install Ubuntu Server***
 - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
-    - Once downloaded, go to VirtualBox and select "New" to create a new VM
-       - Name: choose a name for VM (I named it Splunk since we will be using this as our Splunk Server)
-       - Folder: select where you want VM to live
-       - ISO Image: select ISO image that you just downloaded
-       - Check "Skip Unattended Installation" to install OS manually
+- Once downloaded, go to VirtualBox and select "New" to create a new VM
+   - Name: choose a name for VM (I named it Splunk since we will be using this as our Splunk Server)
+   - Folder: select where you want VM to live
+   - ISO Image: select ISO image that you just downloaded
+   - Check "Skip Unattended Installation" to install OS manually
 - Configure VM specifications (this can vary depending on your computer's specifications):
        - Select 8000 MB RAM for base memory, 2 CPU for processors, 100 GB for virtual hard disk
           - Splunk will require more specs as it will be ingesting data and we'll be running searches on it  
-       - Finish
+- Finish
 - Start the VM
-       - Select "Try or Install Ubuntu Server"
-       - Follow installation prompts; leave as default
-       - Fill out "Profile Setup" form, which is where you will choose your credentials
+   - Select "Try or Install Ubuntu Server"
+   - Follow installation prompts; leave as default
+   - Fill out "Profile Setup" form, which is where you will choose your credentials
     - Once installed, select "Reboot Now"
     - Click "Enter" when "Failed unmounting" error pops up
-    - Once rebooted, logon with recently created credentials
+- Once rebooted, logon with recently created credentials
     - run command: sudo apt-get update && sudo apt-get upgrade -y
          - this command will update & upgrade all of our repositories
     - Once completed, hit "Enter" 
