@@ -114,7 +114,8 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
     - Once installed, select "Reboot Now"
     - Click "Enter" when "Failed unmounting" error pops up
     - Once rebooted, logon with recently created credentials
-    - run sudo apt-get update && sudo apt-get upgrade -y
+    - run command: sudo apt-get update && sudo apt-get upgrade -y
+         - this command will update & upgrade all of our repositories
     - Once completed, hit "Enter" 
 
 Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server."
