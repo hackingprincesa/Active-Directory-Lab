@@ -95,7 +95,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
    - Log in with recently created password
       - Select "No" when asked "Do you want to allow your PC to be discoverable by oth PCs and devices on this network?"
 
-***6. Install Ubuntu Server***
+***6. Install Ubuntu Server*** 
     - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
        - This Ubuntu Server will be used as our Splunk Server
     - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
