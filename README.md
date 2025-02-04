@@ -119,7 +119,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
          - this command will update & upgrade all of our repositories
     - Once completed, hit "Enter" 
 
-Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server."
+Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server.
 
 ![lab set up](https://github.com/user-attachments/assets/07ac8df9-b70f-4338-8727-55a09dd50412)
 
@@ -127,7 +127,7 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 **Phase 2: Configure the Network**
 
 ***1. Setup Communications***
-   - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
+- In Virtual Box, navigate to Tools > Network > NAT Networks > Create
    - Refer to screenshot below for configuration details.
 
 ![NAT](https://github.com/user-attachments/assets/6a33e514-410c-4b33-b234-18148c97bb0b)
@@ -138,8 +138,10 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 
 ![NAT config](https://github.com/user-attachments/assets/90bdf6cc-0d5e-4c84-90c3-9c53c53230e9)
 
-   - Repeat the above 2 steps for each VM, except for Splunk.
-   - Next, start Splunk VM and run sudo nano /etc/netplan/00-installer-config.yaml
+- Repeat the above 2 steps for each VM
+   - Navigate to each VM > Settings > Network
+   - Refer to screenshot above for configuration details.    
+- Next, start Splunk VM and run sudo nano /etc/netplan/00-installer-config.yaml
    - Configure like screenshot below: *insert ss*****
    - Run sudo netplan apply to make changes.
    - Reboot
