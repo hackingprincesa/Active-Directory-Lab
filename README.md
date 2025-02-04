@@ -42,7 +42,9 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
        - Folder: select where you want VM to live
        - ISO Image: select ISO image that you just downloaded
        - Check "Skip Unattended Installation" to install OS manually
-         ![Screen Shot 2025-02-04 at 5 15 38 PM](https://github.com/user-attachments/assets/d123ae11-c032-4ebc-baa8-40559718ec41)
+
+  ![Screen Shot 2025-02-04 at 5 15 38 PM](https://github.com/user-attachments/assets/d123ae11-c032-4ebc-baa8-40559718ec41)
+  
   - Configure VM specifications (this can vary depending on your computer's specifications):
           - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
           - Finish
