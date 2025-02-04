@@ -36,7 +36,8 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 ***4. Install Kali Linux***
    - Download <a href="https://www.kali.org/">Kali Linux</a> 
    - Extract Kali Linux
-        If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
+
+     If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
    - Import Kali Linux into VirtualBox
    - Run the VM
 
