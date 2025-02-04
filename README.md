@@ -69,7 +69,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 ![Screen Shot 2025-02-04 at 5 40 31 PM 1](https://github.com/user-attachments/assets/589bad71-9034-4702-955e-f566caea0a4f)
 
      
-   - Run the VM by clicking "Start"
+   - Now, go to VirtualBox and run the Kali VM by clicking "Start"
    - Log in with default credentials: kali/kali
 
 ***5. Install Windows Server***
