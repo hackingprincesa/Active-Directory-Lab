@@ -27,7 +27,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 
 ***2. Install Oracle VM VirtualBox Manager***
 
-   - Download the appropiate version from <a href="https://www.virtualbox.org/">VirtualBox</a>
+   - Download the compatible version from <a href="https://www.virtualbox.org/">VirtualBox</a>
 
 ***3. Install Windows 10***
    - Navigate to <a href="https://www.microsoft.com/en-ca/software-download/windows10ISO">Microsoft</a> to install the compatible version.
@@ -96,6 +96,8 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
       - Select "No" when asked "Do you want to allow your PC to be discoverable by oth PCs and devices on this network?"
 
 ***6. Install Ubuntu Server***
+
+This Ubuntu Server will be used as our Splunk Server
     - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
     - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
     - Once installed, reboot.
