@@ -64,7 +64,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
    - Extract Kali Linux
 
      If you have any trouble extracting Kali Linux, download <a href="https://www.7-zip.org/">7 Zip</a> and extract with this tool.
-   - Once extracted, double click on the vbox file so that it's automatically imported into VirtualBox
+   - Once extracted, double click on the "vbox" file so that it's automatically imported into VirtualBox
 
 ![Screen Shot 2025-02-04 at 5 40 31 PM 1](https://github.com/user-attachments/assets/589bad71-9034-4702-955e-f566caea0a4f)
 
@@ -74,8 +74,26 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 
 ***5. Install Windows Server***
    - Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
-   - Download 64-bit edition
-   - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
+      - Fill out the form
+      - Select "64-bit edition" under "ISO downloads"
+   - Once downloaded, go to VirtualBox and select "New" to create a new VM
+       - Name: choose a name for VM
+       - Folder: select where you want VM to live
+       - ISO Image: select ISO image that you just downloaded
+       - Check "Skip Unattended Installation" to install OS manually
+   - Configure VM specifications (this can vary depending on your computer's specifications):
+       - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
+       - Finish
+   - Start VM and follow the installation prompts
+      - Select "Install Now"
+      - Select "Windows Server 2022 Standard Evaluation (Desktop Experience)"
+      - Accept the license terms
+      - Select "Custom: Install Windows Microsoft Server Operating System only (advanced)"
+      - Select "Next" to allow Windows to install
+      - Once setup is completed, you will be prompted to create a password
+      - Select "Finish"
+   - Log in with recently created password
+      - Select "No" when asked "Do you want to allow your PC to be discoverable by oth PCs and devices on this network?"
 
 ***6. Install Ubuntu Server***
     - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
