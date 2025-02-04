@@ -98,11 +98,13 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 ***6. Install Ubuntu Server***
 
 This Ubuntu Server will be used as our Splunk Server
+
     - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
     - Create a new VM in VirtualBox with the ISO and follow the installation prompts.
     - Once installed, reboot.
     - Once rebooted, run sudo apt-get update && sudo apt-get upgrade -y
     - Once completed, hit "Enter" 
+
 
 Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server."
 
