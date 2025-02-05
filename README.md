@@ -588,8 +588,9 @@ We have successfully installed Sysmon and Splunk on both our Windows machine (ta
    - Select the flag icon
    - Select “Promote the server to a domain controller"
    - Select “Add a new forest” since we are creating a new domain
-      - Root domain name: yourdomainname.local, yourdomainname.test, etc
+      - Root domain name: yourdomainname.local
          - Domain name must have top level domain; cannot just be "yourdomainname"
+            - ex. hackingprincesa.local, hackingprincesa.test, yourdomainname.test, etc 
          - Attackers love to attack domain controllers since it has access to everything. Access to this file grants access to everything related to AD                  including passwords hashes.
          - Create a password
          - Install
@@ -604,9 +605,26 @@ We have successfully installed Sysmon and Splunk on both our Windows machine (ta
    - Select "Active Directory Users and Computers"
       - Here we can create objects such as users, computers, groups, etc.
    - Add a new OU aka Organizational Unit
-      Created users under the OU titled IT
-         NMHere we added the first name, last name, user logon name, PW settings, etc
-< AD is now set up and our server is now domain controller >
+      - Please note: OUs can be used to group objects by function, location, department, or other criteria. In a work environment, OUs are usually used as            departments.
+      - Right click the domain > select "New" > Organizational Unit
+      - Name: "IT"
+![OU](https://github.com/user-attachments/assets/c19d9665-75c0-4905-9b47-db82e97e424e)
+
+      - Now, we have an OU created
+   - Within this new OU, create a new user
+      - Select "New" > User  
+![ner user](https://github.com/user-attachments/assets/603d8586-e089-4e62-8e3c-38bd34031275)
+
+      - Fill out the form with new user information
+![new user in IT](https://github.com/user-attachments/assets/cdd721ba-ef01-4208-8829-3a32f06268fb)
+      
+      - Finish
+
+Active Directory is now set up and our server is now promoted to domain controller.
+
+              
+***2. Configure Windows 10 Machine to Join New Domain***
+
 Now log onto target-PC and join our newly created domain & authenticate using Jenny Smith account
      Open Network & Internet settings 
     - Select Ethernet
@@ -623,8 +641,6 @@ Select Computer Name tab
 < Will get an error message if we don’t update the DNS to the domain controller’s IP >
     Will need to enter username and PW to grant access to join domain
         For this part, I created a new user and added it to be a member of Administrator on the Domain Controller. I then used these credentials to grant target-PC to join domain
-              
-***2. Configure Windows 10 Machine to Join New Domain***
 
 ## Phase 4: Brute Force Attack
 
