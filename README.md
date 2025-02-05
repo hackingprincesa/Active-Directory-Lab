@@ -632,22 +632,51 @@ Active Directory is now set up and our server is now promoted to domain controll
      
 ![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
 
- - Initially, you will get an error message; this is related to the DNS we configured earlier. if we don’t update the DNS to the domain controller’s IP 
-    - Update the Preferred DNS Server to the domain controller's IP address:
-       - Navigate to network icon at the bottom right of the window
-       - Select "Open Network & Internet Settings"
-       - Select "Change adapter options"
-       - Right click the adapter, Ethernet
-       - Select "Properties"
-       - Select "Internet Protocol Version 4 (TCP/IPv4)" > "Properties"
-       - Select "Use the following IP address"
-       - Configure as shown below:
+   - You will get an error message; this is related to the DNS we configured earlier. Originally, we had our Preferred DNS server set to 8.8.8.8, which is         Google's DNS server. We want to update the Preferred DNS server so that it is pointing to our domain controller, which is 192.168.10.7.
+      - Update the Preferred DNS Server to the domain controller's IP address:
+         - Navigate to network icon at the bottom right of the window
+         - Select "Open Network & Internet Settings"
+         - Select "Change adapter options"
+         - Right click the adapter, Ethernet
+         - Select "Properties"
+         - Select "Internet Protocol Version 4 (TCP/IPv4)" > "Properties"
+         - Select "Use the following IP address"
+         - Configure as shown below:
 
 ![windows static IP](https://github.com/user-attachments/assets/f27e01d7-6811-4b93-8f19-13cf91856222)
 
- 
-    Will need to enter username and PW to grant access to join domain
-        For this part, I created a new user and added it to be a member of Administrator on the Domain Controller. I then used these credentials to grant target-PC to join domain
+   - Confirm updated DNS Server in Command Prompt
+      - Open Command Prompt
+      - Run: ipconfig /all
+
+![cmnd prompt - dns conf](https://github.com/user-attachments/assets/28405fc6-bafb-4007-b7d2-cc7bea5d43e1)
+
+   - Now, we can join the domain
+      - Search PC > select "Properties" > Advanced system settings > Computer Name > Change
+      - Under "Member of", select "Domain"
+![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
+
+      - Select "Ok"
+      - Will be prompted to enter credentials
+         - User the administrator account of the server to log on as it has the appropiate permissions
+            - The administrator account will grant access to join domain 
+           
+![admin cred](https://github.com/user-attachments/assets/20293e09-eb06-49a5-9b69-d70349d26861)
+
+   - You will get a pop up welcoming you to the domain.
+   - Computer will prompt you to restart
+     
+- Once you are back on the log on screen, confirm that new user has successfully joined the domain
+   - Select "Other User"
+   - Log on with your newly created user Jenny Smith or Maria Rodriguez
+   - Type "jsmith" and the password
+
+![jsmith log on](https://github.com/user-attachments/assets/bdba0549-81dd-4708-ae98-06bf6fe3b292)
+
+
+***Summary***
+
+We have successfully created a new user, joined our computer to a new domain, and logged in as a domain user.
 
 ## Phase 4: Brute Force Attack
 
