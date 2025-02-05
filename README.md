@@ -576,9 +576,55 @@ We have successfully installed Sysmon and Splunk on both our Windows machine (ta
 
 ## Phase 3: Active Directory and Control Domain
 
-1. Setup Active Directory Domain Services on Windows Server
-   
-2. Windows 10 Machine Joins New Domain
+***1. Setup Active Directory Domain Services on Windows Server***
+
+- Install ADDS aka Active Directory Domain Services
+   - On Windows Server, open "Server Manager"
+   - Select "Manage" > Add Roles & Features > Next > Role-based of feature-based installation > Next > select ADDC01 > Next > select "Active Directory Domain      Services > Add features > Next > Next > Install
+   - Once installed, select "close"
+     
+- Promote the server & create a new domain
+   - Open Server Manager 
+   - Select the flag icon
+   - Select “Promote the server to a domain controller"
+   - Select “Add a new forest” since we are creating a new domain
+      - Root domain name: yourdomainname.local, yourdomainname.test, etc
+         - Domain name must have top level domain; cannot just be "yourdomainname"
+         - Attackers love to attack domain controllers since it has access to everything. Access to this file grants access to everything related to AD                  including passwords hashes.
+         - Create a password
+         - Install
+         - Machine will automatically restart
+- Log in
+   - On logon screen, will see domainame\Administrator
+      - This indicates that we have successfully installed ADDS and promoted our server to a domain controller.
+                     
+- Create users
+   - Open Server Manager
+   - Select "Tools"
+   - Select "Active Directory Users and Computers"
+      - Here we can create objects such as users, computers, groups, etc.
+   - Add a new OU aka Organizational Unit
+      Created users under the OU titled IT
+         NMHere we added the first name, last name, user logon name, PW settings, etc
+< AD is now set up and our server is now domain controller >
+Now log onto target-PC and join our newly created domain & authenticate using Jenny Smith account
+     Open Network & Internet settings 
+    - Select Ethernet
+     Select Change adapter options
+     Select Properties
+    Select IPv4 to change Preferred DNS server to 192.168.10.7; this IP directs it to our Domain Controller (on the AD server)
+   Can verify change with ifconfig /all
+ Search PC
+  Go to properties
+Advanced system settings
+Select Computer Name tab
+   Select Change
+  Under Member of, select Domain
+< Will get an error message if we don’t update the DNS to the domain controller’s IP >
+    Will need to enter username and PW to grant access to join domain
+        For this part, I created a new user and added it to be a member of Administrator on the Domain Controller. I then used these credentials to grant target-PC to join domain
+              
+***2. Configure Windows 10 Machine to Join New Domain***
 
 ## Phase 4: Brute Force Attack
 
