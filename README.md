@@ -243,6 +243,8 @@ The steps above did not work for me as I had a different configuration file, but
    - Run: cd bin
    - Run: sudo ./splunk enable boot-start -user splunk
       - Whenever the VM reboots, Splunk will run with user splunk
+
+![splnk login](https://github.com/user-attachments/assets/647ecc3c-8549-4d9b-ac4f-1ec626b56d54)
   
 ***3. Configure Windows Machine***
    
