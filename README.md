@@ -273,7 +273,8 @@ Please note that configuring the Windows Machine and the Windows Server is extre
    - Select "Use the following IP address"
    - Configure as shown below:
      
-![windows static IP](https://github.com/user-attachments/assets/f1388824-1798-4019-8672-794cb4933393)
+![windows 8 8 8 8](https://github.com/user-attachments/assets/84f4a826-b0e2-46d8-b099-59dac9e59256)
+
 
    - Run ipconfig to view updated IPv4
 
@@ -615,7 +616,7 @@ We have successfully installed Sysmon and Splunk on both our Windows machine (ta
       - Select "New" > "User"
 ![ner user](https://github.com/user-attachments/assets/603d8586-e089-4e62-8e3c-38bd34031275)
 
-      - Fill out the form with new user information
+      - Fill out the form with new user information to successfully add a new user.
       
 ![new user in IT](https://github.com/user-attachments/assets/cdd721ba-ef01-4208-8829-3a32f06268fb)
 
@@ -624,20 +625,27 @@ Active Directory is now set up and our server is now promoted to domain controll
               
 ***2. Configure Windows 10 Machine to Join New Domain***
 
-Now log onto target-PC and join our newly created domain & authenticate using Jenny Smith account
-     Open Network & Internet settings 
-    - Select Ethernet
-     Select Change adapter options
-     Select Properties
-    Select IPv4 to change Preferred DNS server to 192.168.10.7; this IP directs it to our Domain Controller (on the AD server)
-   Can verify change with ifconfig /all
- Search PC
-  Go to properties
-Advanced system settings
-Select Computer Name tab
-   Select Change
-  Under Member of, select Domain
-< Will get an error message if we don’t update the DNS to the domain controller’s IP >
+- Log onto Windows 10 machine and join our newly created domain & authenticate using Jenny Smith account
+   - Log onto Windows 10 machine (target-PC) 
+   - Search PC > select "Properties" > Advanced system settings > Computer Name > Change
+   - Under "Member of", select "Domain"
+     
+![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
+
+ - Initially, you will get an error message; this is related to the DNS we configured earlier. if we don’t update the DNS to the domain controller’s IP 
+    - Update the Preferred DNS Server to the domain controller's IP address:
+       - Navigate to network icon at the bottom right of the window
+       - Select "Open Network & Internet Settings"
+       - Select "Change adapter options"
+       - Right click the adapter, Ethernet
+       - Select "Properties"
+       - Select "Internet Protocol Version 4 (TCP/IPv4)" > "Properties"
+       - Select "Use the following IP address"
+       - Configure as shown below:
+
+![windows static IP](https://github.com/user-attachments/assets/f27e01d7-6811-4b93-8f19-13cf91856222)
+
+ 
     Will need to enter username and PW to grant access to join domain
         For this part, I created a new user and added it to be a member of Administrator on the Domain Controller. I then used these credentials to grant target-PC to join domain
 
