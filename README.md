@@ -563,13 +563,16 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
       - Log on with credentials created during Splunk install on Splunk Server
       - Select "Search & Reporting"
       - Search "index=endpoint"
-      - Scroll down to "host" and you will see 2 hosts 
-   
-![Splunk hosts](https://github.com/user-attachments/assets/e51494bd-bfea-47c8-9f24-3bbf92377e75)
+      - Scroll down to "host" and you will see 2 hosts
+        
+![2 hostss](https://github.com/user-attachments/assets/8841c579-4b50-4e38-9e3f-3e1ab3959560)
 
 ***Summary***
 
 We have successfully installed Sysmon and Splunk on both our Windows machine (target-PC) and Windows Server (ADDC01). Now, when logged into the Splunk Server on either machine, you should be able to view the telemetry from both machines. 
+
+![Splunk hosts](https://github.com/user-attachments/assets/e51494bd-bfea-47c8-9f24-3bbf92377e75)
+
 
 ## Phase 3: Active Directory and Control Domain
 
