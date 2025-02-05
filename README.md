@@ -382,8 +382,8 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
          - Select "Apply"
          - Select "Ok"
       - Right click "SplunkForwarder" and select "Restart" or click "Restart" on the top left
-
-![restart splunkfwd](https://github.com/user-attachments/assets/04c81d92-c3f7-413a-bbcb-50f9af7c1b76)
+        
+![restart splunkfwd](https://github.com/user-attachments/assets/28038e71-6b06-46e3-a8ad-ffa6895d9bca)
 
    - Select "Start" the service
      
