@@ -119,7 +119,9 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
          - this command will update & upgrade all of our repositories
     - Once completed, hit "Enter" 
 
-Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server.
+Summary
+
+You should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server.
 
 ![lab set up](https://github.com/user-attachments/assets/07ac8df9-b70f-4338-8727-55a09dd50412)
 
