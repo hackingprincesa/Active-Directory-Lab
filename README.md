@@ -269,13 +269,14 @@ The steps above did not work for me as I had a different configuration file, but
      
 ![windows static IP](https://github.com/user-attachments/assets/f1388824-1798-4019-8672-794cb4933393)
 
-   - Run IP config to view updated IPv4
+   - Run ipconfig to view updated IPv4
 
 ![cmnd prompt](https://github.com/user-attachments/assets/38e0c671-84ff-4246-b9e3-f668b4fc1809)
 
 - Install Splunk Universal Forwarder on target-PC
-   - Run Splunk VM (this will not work if VM is not running)
-   - In the target-PC, open the browser and type 192.168.10.10:8000 blah blah fix blah blah
+   - Run Splunk VM (the following steps will not work if VM is not running)
+   - In the target-PC, open the browser and type 192.168.10.10:8000
+      - Splunk listens on port 8000 
    - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a> and 
 
 Install Sysmon
