@@ -294,24 +294,48 @@ The steps above did not work for me as I had a different configuration file, but
          - Hostname or IP: 192.168.10.10
          - Default port for Splunk when receiving events is: 9997
       - Select "Next"
-      - Install  
+      - Select "Install"
+   - UniversalForwarder Setup pop up will flash orange
+      - Select "Finish"  
 
-Install Sysmon
-- In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
-- Navigate to <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml">Sysmon's Configuration File</a> on GitHub
-- Click "raw"
-- Save the file
-- Extract the Sysmon file
-- Open PowerShell as administrator
-- Copy and Paste the URL of the extracted directory here
-- Run .\Sysmon64.exe -i ..\sysmonconfig.xml
-- Click "Agree"
+- Install Sysmon
+   - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
+      - Select "Download Sysmon" 
+   - Navigate to <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml">Sysmon's Configuration File</a> on GitHub
+      - This is the sysmon configuration that we will be using
+   - Select "Raw"
+     
+![sysmon git](https://github.com/user-attachments/assets/b9d900d1-ad9a-4a4e-8e64-83191e12ee15)
 
-Configure Splunk Unviersal Forwarder to specify what data we want to send to our Splunk Server
-- Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local
-- Open Notepad as administrator and enter the following:
-- insert ss***
-- Save file as 
+   - Save in downloads 
+   - Extract the Sysmon file
+      - Navigate to downloads directory
+      - Right click "Sysmon"
+      - Select "Extract All"
+      - Select "Extract"
+   - Copy the file path
+     
+![copy file path](https://github.com/user-attachments/assets/0c4718e4-afbc-4962-95b7-ac663126f357)
+        
+   - Open PowerShell as administrator
+   - Change directory into the file path 
+      - Run: cd (Paste the file path of the extracted directory here)
+      - ex. cd C:\Users\hacki\Downloads\Sysmon 
+   - Run: .\Sysmon64.exe -i ..\sysmonconfig.xml
+      - -i flag indicates that we want to specify a configuration file
+      - ../ allows us to go back one directory 
+         - sysmon config file is locaed under downloads directory so ../ will allow us to do that
+   - Hit "Enter"
+   - Select "Agree" to install Sysmon
+   - Screen will display "Sysmon64 started"
+   - Close PowerShell
+ 
+
+- Configure Splunk Unviersal Forwarder to specify what data we want to send to our Splunk Server
+   - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local
+   - Open Notepad as administrator and enter the following:
+   - insert ss***
+   - Save file as 
    
 ***5. Configure Windows Server***
 
