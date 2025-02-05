@@ -147,24 +147,26 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 - To set a static IP on Splunk server:
    - Run: sudo nano /etc/netplan/00-installer-config.yaml
       - tab to auto-complete, should only have one file 
-   - Configure like screenshot below:
-    ``` 
-     network: 
-  ethernet:
-    enp0s3:
-      dhcp4: no
-      addresses: [192.168.10.10/24]
-      nameservers:
-          addresses: [8.8.8.8]
-      routes:
+   - Configure:
+  ```
+  network: 
+     ethernet:
+       enp0s3:
+         dhcp4: no
+         addresses: [192.168.10.10/24]
+         nameservers:
+               addresses: [8.8.8.8]
+         routes:
           - to: default
             via: 192.168.10.1
-  version: 2
+   version: 2
     ```
-   - Run: sudo netplan apply to make changes.
+   - Save configuration
+   - Run: sudo netplan apply
+   - Run: ip a
+      - This will verify if IP address persists and is set to 192.168.10.10/24   
    - Reboot
-   - Run ip a to verify IP address persists and is set to 192.168.10.10/24
-   - Verify connection by running ping google.com
+   - Verify connection by running: ping google.com
      
 The steps above did not work for me as I had a different configuration file, but this turned out to be a great opportunity to troubleshoot and learn more. The configuration file on my Splunk server was 50-cloud-init.yaml, meaning our IP updates wouldn’t persist after a reboot. To resolve this, I created a custom 00-installer-config.yaml file inside /etc/netplan/ and configured it with the updated IP. This ensured the static IP would remain after a reboot instead of reverting to DHCP. I also had to back up and delete the old 50-cloud-init.yaml file. Reboot and verify IP address once done.
 
