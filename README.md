@@ -141,9 +141,27 @@ Refer to the screenshot below, you should now have Oracle VM VirtualBox Manager 
 - Repeat the above 2 steps for each VM
    - Navigate to each VM > Settings > Network
    - Refer to screenshot above for configuration details.    
-- Next, start Splunk VM and run sudo nano /etc/netplan/00-installer-config.yaml
-   - Configure like screenshot below: *insert ss*****
-   - Run sudo netplan apply to make changes.
+- Next, start Splunk VM
+   - run: ip a
+      - this will display current IP address, which will need to be updated to static IP 192.168.10.10/24
+- To set a static IP on Splunk server:
+   - Run: sudo nano /etc/netplan/00-installer-config.yaml
+      - tab to auto-complete, should only have one file 
+   - Configure like screenshot below:
+    ``` 
+     network: 
+  ethernet:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.10.10/24]
+      nameservers:
+          addresses: [8.8.8.8]
+      routes:
+          - to: default
+            via: 192.168.10.1
+  version: 2
+    ```
+   - Run: sudo netplan apply to make changes.
    - Reboot
    - Run ip a to verify IP address persists and is set to 192.168.10.10/24
    - Verify connection by running ping google.com
