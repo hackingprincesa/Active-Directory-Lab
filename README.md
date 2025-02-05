@@ -336,9 +336,9 @@ The steps above did not work for me as I had a different configuration file, but
    - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > default > inputs.conf
       - Do NOT want to edit the inputs.conf file under the default directory
    - Create a new file under the local directory and name it inputs.conf
-      - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local > inputs.conf
       - Open Notepad as administrator and enter the below information:
-         - This instructs Splunk Universal Forwarder to push events related to 
+         - This instructs Splunk Universal Forwarder to push events related to Application, Security, System, and Sysmon over to Splunk Server
+         - Take note of "index=endpoint", whatever falls under these categories will be sent over Splunk and placed under the index "endpoint". If our Splunk Server does not have an index named endpoint, it will not receive any of these events. 
 
 
 ```
@@ -361,7 +361,30 @@ renderXml = true
 source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 
 ```
-   - Save file as 
+   - Save file 
+      - Save under local directory
+         - File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local > inputs.conf
+      - File Name: inputs.conf
+      - Save as type; All Files
+      - Save
+   - Restart
+      - Any time you update "inputs.conf" file, you must restart Splunk's Universal Forwarder service
+      - Search "Services" and run as administrator
+      - Find "SplunkForwarder"
+         - Double click "SplunkForwarder"
+         - Select "Lof On"
+         - Select "Local System Account"
+         - Select "Apply"
+         - Select "Ok"
+      - Right click "SplunkForwarder" and select "Restart" or click "Restart" on the top left
+
+![restart splunkfwd](https://github.com/user-attachments/assets/59ca3d70-f3e7-4d99-9734-8054a10d038c
+
+   - Select "Start" the service
+     
+Now, we have our Sysmon & Splunk Universal Forwarder installed along with our updated inputs.conf file.\
+
+- Finalize Splunk Server configuration
    
 ***5. Configure Windows Server***
 
