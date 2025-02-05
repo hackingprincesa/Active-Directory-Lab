@@ -17,7 +17,7 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 
 ## Step-by-Step Guide:
 
-**Phase 1: Environment Install and Configuration**
+## Phase 1: Environment Install and Configuration
 
 ***1. Draw a diagram of the environment using a tool such as <a href="https://app.diagrams.net/">draw.io</a>***
 
@@ -126,7 +126,7 @@ You should now have Oracle VM VirtualBox Manager installed, along with four VMs 
 ![lab set up](https://github.com/user-attachments/assets/07ac8df9-b70f-4338-8727-55a09dd50412)
 
 
-**Phase 2: Configure the Network**
+## Phase 2: Configure the Network
 
 ***1. Setup Communications***
 - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
@@ -571,13 +571,13 @@ Summary
 
 We have successfully installed Sysmon and Splunk on both our Windows machine (target-PC) and Windows Server (ADDC01). Now, when logged into the Splunk Server on either machine, you should be able to view the telemetry from both machines. 
 
-**Phase 3: Active Directory and Control Domain**
+## Phase 3: Active Directory and Control Domain
 
 1. Setup Active Directory Domain Services on Windows Server
    
 2. Windows 10 Machine Joins New Domain
 
-**Phase 4: Brute Force Attack**
+## Phase 4: Brute Force Attack
 
 ***1. Configure Network***
    
@@ -589,7 +589,7 @@ We have successfully installed Sysmon and Splunk on both our Windows machine (ta
    
 ***5. ART***
 
-**Phase 5: Splunk Telemetry**
+## Phase 5: Splunk Telemetry
 
 1. Analyze Attack with Splunk
 
