@@ -684,6 +684,29 @@ We have successfully configured our Active Directory server, created new users, 
 ## Phase 4: Brute Force Attack
 
 ***1. Configure Network***
+
+- Log onto Kali Linux machine with default credentials
+- Configure a static IP address to 192.168.10.250
+   - Right click the Ethernet icon
+   - Select "Edit Connections"
+     
+![edit connection](https://github.com/user-attachments/assets/2570ea72-9b77-4d14-9b90-399d4dc70ef9)
+
+   - Select Wired connection 1
+   - Select the cog icon
+   - Select IPv4 Seetings
+   - Configure and save:
+
+![kali static ip](https://github.com/user-attachments/assets/8dff6f03-48ba-41cc-b28a-879cf7d3760d)
+
+   - To reflect changes, select the Ethernet icon and select "Disconnect
+   - Select the Ethernet icon again and select "Wired connection 1"
+   - Confirm that the static IP has been updated
+      - Open terminal
+      - Run: ip a
+        
+![kali terminal](https://github.com/user-attachments/assets/346e6ff5-1e7b-494c-a017-2eb9589f2753)
+
    
 ***2. Set up the Attack***
    
