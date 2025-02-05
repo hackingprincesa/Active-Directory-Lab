@@ -389,7 +389,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
 - Finalize Splunk Server configuration
    - On the target-PC, go to Splunk web portal
       - Search 192.168.10.10:8000 in browser
-      - Splunk VM must be running in order for portal to work
+         - Splunk VM must be running in order for portal to work
       - Log on with credentials created during Splunk install on Splunk Server
    - Once logged on, create "endpoint" index
       - Select "Settings"
@@ -461,7 +461,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
       - Select "Next"
       - Choose your credentials
       - For "Receiving Indexer", this is going to be our Splunk Server's IP address
-         - Hostname or IP: 192.168.10.10
+         - Hostname or IP: 192.168.10.7
          - Default port for Splunk when receiving events is: 9997
       - Select "Next"
       - Select "Install"
@@ -469,7 +469,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
       - Select "Finish"  
 
 - Install Sysmon
-   - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
+   - In the ADDC01 machine, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
       - Select "Download Sysmon" 
    - Navigate to <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml">Sysmon's Configuration File</a> on GitHub
       - This is the sysmon configuration that we will be using
@@ -554,30 +554,10 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
      
 Now, we have our Sysmon & Splunk Universal Forwarder installed along with our updated inputs.conf file.
 
-- Finalize Splunk Server configuration
-   - On the target-PC, go to Splunk web portal
-      - Search 192.168.10.10:8000 in browser
-      - Splunk VM must be running in order for portal to work
+   - Now, we should see data coming in from ADDC01 as well as the target-PC
+      - Log onto Splunk web portal by searching 192.168.10.10:8000 in browser
+         - Splunk VM must be running in order for portal to work
       - Log on with credentials created during Splunk install on Splunk Server
-   - Once logged on, create "endpoint" index
-      - Select "Settings"
-      - Select "Indexes"
-      - Select "New Index"
-      - Index Name: endpoint
-      - Select "Save"
-        
-![new index](https://github.com/user-attachments/assets/ea3654cd-9bd3-4cfe-9b00-d872b1b5ae22)
-
-   - Next, enable Splunk Server to receive data
-      - Select "Settings"
-      - Select "Forwarding and receiving"
-      - Under "Receive data", select "Configure receiving"
-      - Select "New Receiving Port"
-      - Listen on this port: 9997 
-         - If you recall during the set up, 9997 is the default port
-      - Select "Save"
-   - Repeat these steps for the ADDC VM as well.  
-   - Should now see data coming in from target-PC (Please note: installing Splunk Universal Forwarder and Sysmon on the ADDC VM will follow these exact same steps, hence why both target-PC and ADDC are displayed)
       - Select "Search & Reporting"
       - Search "index=endpoint"
       - Scroll down to "host" and you will see 2 hosts 
