@@ -204,19 +204,45 @@ The steps above did not work for me as I had a different configuration file, but
    - Run: mkdir Share
    - Run: ls
       - Newly created directory "Share" should be listed 
-- Now, mount our shared folder onto our directory called "Share"
+- Next, mount our shared folder onto our directory called "Share"
    - Run: sudo mount -t vboxsf -o uid=1000,gid=1000 <directory name where .deb file is located> share/
       - ex. sudo mount -t vboxsf -o uid=1000,gid=1000 AD-Project share/
       - If you forget what your shared folder name is:
          - Navigate to Devices > Shared Folders > Shared Folders Settings
-
-Verify completion with ls -la, "Share" should be highlighted. Navigate to the share directory using cd share/ and run ls -la once more to view all the files listed in that directory. Install splunk by running sudo dpkg -i splu<hit tab to auto-complete>
-
-Navigate via cd /opt/splunk/ and run ls -la. Change into the user Splunk by running sudo -u splunk bash. Run cd bin/. Run ./start splunk, to continue press q followed by y and [ENTER].
-
-To finalize this step, exit, cd bin, and finally, sudo ./splunk enable boot-start -user splunk. This will allow Splunk to start on boot as the user Splunk.
-
-blah blah blah
+   - If you get an error, exit session and re-do steps
+      - Run: exit
+      - Error may occur because when you add your user into a new group, it may not reflect until you log out
+   - Run: ls -la
+      - Should now see that our "share" is now highlighted
+- Change directories into that share
+   - Run: cd share
+   - Run: clear
+   - Run: ls -la
+      - This will display all the files listed in this directory, including our Splunk Installer
+- To install Splunk:
+   - Run: sudo dpkg -i splunk (hit tab to auto-complete)
+   - Once you see "Complete", should be good to change into directory where Splunk is located onto our server
+- Change directory
+   - Run: cd /opt/splunk
+   - Run: ls -la
+      - Here you will notice that all users and groups belong to Splunk, which is a good thing as it limits the permissions to that user
+- Change into user Splunk
+   - Run: sudo -u splunk bash
+      - Now, we are acting as user Splunk 
+- Run: cd bin
+   - Files listed in here are all binaries that Splunk can use
+   - the one that we will use is "./splunk start"
+   - Run: ./splunk start
+      - This will run the installer
+   - Click "q"
+   - Type "y" to accept
+   - Select an administrator username and password
+- Once installation is completed:
+   - Run: exit
+      - To exit out of user Splunk 
+   - Run: cd bin
+   - Run: sudo ./splunk enable boot-start -user splunk
+      - Whenever the VM reboots, Splunk will run with user splunk
   
 ***3. Configure Windows Machine***
    
