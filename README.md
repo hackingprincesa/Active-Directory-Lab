@@ -608,17 +608,20 @@ We have successfully installed Sysmon and Splunk on both our Windows machine (ta
       - Please note: OUs can be used to group objects by function, location, department, or other criteria. In a work environment, OUs are usually used as            departments.
       - Right click the domain > select "New" > Organizational Unit
       - Name: "IT"
+      - Now, we have an OU created
+        
 ![OU](https://github.com/user-attachments/assets/c19d9665-75c0-4905-9b47-db82e97e424e)
 
-      - Now, we have an OU created
    - Within this new OU, create a new user
-      - Select "New" > User  
+      - Select "New" > User
+        
 ![ner user](https://github.com/user-attachments/assets/603d8586-e089-4e62-8e3c-38bd34031275)
 
       - Fill out the form with new user information
+      
 ![new user in IT](https://github.com/user-attachments/assets/cdd721ba-ef01-4208-8829-3a32f06268fb)
       
-      - Finish
+
 
 Active Directory is now set up and our server is now promoted to domain controller.
 
