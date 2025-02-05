@@ -408,12 +408,13 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
       - Listen on this port: 9997 
          - If you recall during the set up, 9997 is the default port
       - Select "Save"
-   - Should now see data coming in from target-PC (Please note: installing Splunk Universal Forwarder and Sysmon on the ADDC VM will follow these exact same steps, hence why both target-PC and ADDC are displayed)
+   - Should now see data coming in from target-PC 
       - Select "Search & Reporting"
       - Search "index=endpoint"
-      - Scroll down to "host" and you will see 2 hosts 
-   
-![Splunk hosts](https://github.com/user-attachments/assets/e51494bd-bfea-47c8-9f24-3bbf92377e75)
+      - Scroll down to "host" and you will see 1 host, which is the target-PC
+         - Once Windows Server is configured, you will see 2 hosts.  
+   ![1 host](https://github.com/user-attachments/assets/d8689fc6-1742-411c-9bf5-63a065210471)
+
 
 ***5. Configure Windows Server***
 
