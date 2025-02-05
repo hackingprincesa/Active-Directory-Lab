@@ -119,7 +119,7 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
          - this command will update & upgrade all of our repositories
     - Once completed, hit "Enter" 
 
-Summary
+***Summary***
 
 You should now have Oracle VM VirtualBox Manager installed, along with four VMs running Windows 10, Kali Linux, Windows Server, and Splunk Server.
 
@@ -567,7 +567,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
    
 ![Splunk hosts](https://github.com/user-attachments/assets/e51494bd-bfea-47c8-9f24-3bbf92377e75)
 
-Summary
+***Summary***
 
 We have successfully installed Sysmon and Splunk on both our Windows machine (target-PC) and Windows Server (ADDC01). Now, when logged into the Splunk Server on either machine, you should be able to view the telemetry from both machines. 
 
