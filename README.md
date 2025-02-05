@@ -707,6 +707,145 @@ We have successfully configured our Active Directory server, created new users, 
         
 ![kali terminal](https://github.com/user-attachments/assets/346e6ff5-1e7b-494c-a017-2eb9589f2753)
 
+   - Verify connectivity
+      - Run: ping google.com
+      - Run: ping 192.168.10.10
+        
+- Update & upgrade repositories
+   - Run: sudo apt-get update && sudo apt-get upgrade -y
+     
+- Set up attack, once update & upgrade is complete
+   - First, create a new directory called AD Project
+      - Run: mkdir AD-Project
+      - This will create a directory on our desktop. All the files that we will create & use, will be put into this directory.
+
+- Install crowbar
+   - Run:sudo apt-get install -y crowbar
+   - Please note: crowbar is the tool that we will be using to perform brute force attacks. We are using this tool for educational purposes only; please only      attack consenting targets.
+
+ 
+  Now, we want to use a popular word list called rocku that comes with Kali Linux
+     cd /usr/share/wordlists/
+     ls
+28. Unzip rockyou.txt.gz file using gunzip
+    1. sudo gunzip rockyou.txt.gz
+29. Type ls command again
+30. Copy this file onto AD Project folder 
+    1. cp rockyou.txt ~/Desktop/AD-Project/
+31. Change into AD Project directory
+    1. cd ~/Desktop/AD-Project/ 
+32. Verify that it rockyou.txt copied over into this directory
+    1. ls -lh
+33. you can see that this contains a bit of PW and don’t want to use all of it so use first 20 lines
+    1. head -n 20 rockyou.txt 
+34. Clear
+35. Output it to a file called passwords.txt
+    1. head -n 20 rockyou.txt > passwords.txt
+36. ls
+37. Open it up
+    1. cat passwords.txt
+38. Let’s say we want to target a certain PW
+    1. nano passwords.txt
+        1. this command is to edit the file
+    2. add PW at end
+    3. save with control + x
+39. Before we launch the attack..
+40. Open Windows target-PC
+41. Enable remote desktop on target-PC
+42. Go to the PC’s properties
+43. Click Advanced system settings
+44. Will need to logon as admin 
+45. Go to Remote
+46. Click Allow remote connections to this computer
+47. Click Select Users…
+48. Click Add
+49. Add your users
+50. Click OK
+51. Click OK
+52. Click Apply
+53. Click OK
+54. Now we have enabled remote desktop onto target-PC
+55. Go to Kali Linux machine
+56. Open terminal
+57. Use tool
+    1. crowbar -h
+58. crowbar -b rdp -u tmsith -C passwords.txt -s 192.168.10.100/32
+    1. -b specifies service
+    2. -u specifies account of interest
+    3. -C specify a PW list
+    4. -s to specify source IP (target machine’s IP)
+    5. /32 instead of /24 because I want to only target this one IP 
+59. Open Splunk to see what telemetry was generated
+    1. 192.168.10.10:8000
+60. Click Search & Reporting
+61. Narrow down search 
+    1. index=endpoint smith
+62. Click event code
+    1. you will see a total count of 78 for event code 4625
+    2. google event id’s you don’t know ex. 4625 is an account failed to log on
+63. Click 4625, it will update in search bar
+64. Look at the time of all events, will see that they all happened around the same time, which is a clear indicator of a brute force attack
+65. Search with eventcode=4624 and you will see a 
+66. 4624: An account was successfully logged on 
+67.  Click Show all 70 lines to investigate
+68. You will see workstation and IP that performed brute force
+69. Install Atomic Red Team (ART)
+70. Open Powershell as admin
+71. Run command
+    1. Set-ExecutionPolicy Bypass CurrentUser
+72. Y
+73. Now, you want to install ART framework, but first set an exclusion for the entire c drive as microsoft defender will detect & remove some of the files from ART
+74. Click on up arrow on Windows 
+75. Click Windows Security icon
+76. Click Virus & threat protection
+77. Click Manage settings
+78. Click “Add or remove exclusions”
+79. Click Add an exclusion
+80. Select folder
+81. Select This PC
+82. Select our C drive
+83. Click “Select Folder”
+84. You should see the exclusion for the c drive
+    1. img
+85. Download ART zips onto Windows target-PC
+86. Create a new folder in C drive
+    1. Name it Atomic Red Team
+87. Move zip files to the ART folder
+88. Extract files
+89. Once extracted, can delete the zips
+90. Clean up files 
+    1. there’s a duplicate directory, make sure to move appropriate files to one directory and delete the duplicate
+91. Next, delete “master” out of file name “invoke-atomicredteam-master”
+    1. invoke-atomicredteam
+92. Click atomic-red-team-master
+    1. Move atomics file to Atomic Red Team folder that we created
+    2. img
+93. Set up powershell
+94. <Going to follow invoke-atomicredteam’s link regarding installation
+95. Powershell can’t run scripts so run command 
+    - [ ] Set-ExecutionPolicy Bypass CurrentUser or powershell -exec bypass
+    - [ ] Y
+96. Install nodule
+    - [ ] copy script from github
+97. Import module
+    - [ ] copy script from github
+98. Now you will use one of the tactics from the atomics folder
+    - [ ] choose which tactic you want to use
+    - [ ] then run command:
+Invoke-AtomicTest T1136.001
+        - [ ] 	This attack created a new windows admin user called “newlocaluser”
+1. This will generate telemetry
+2. Search in Splunk
+index=endpoint NewLocalUser
+        - [ ] If no events, that will tell you that you’re blind to this activity. If an attacker compromised system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
+1. Perform another attack
+		Invoke-AtomicTest T1059.001
+            - [ ] This attack is called Command and Scripting Interpreter using Powershell
+1. Search in Splunk
+    1. index=endpoint powershell
+2. <Can build alerts to detect both attacks in the future
+  
+
    
 ***2. Set up the Attack***
    
