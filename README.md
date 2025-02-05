@@ -246,25 +246,37 @@ The steps above did not work for me as I had a different configuration file, but
   
 ***3. Configure Windows Machine***
    
-Rename the PC
-- In the Start Menu search, search "About"
-- Rename PC to "target-PC"
+- Rename the host name of machine
+   - In the Start Menu search, search "PC"
+   - Select "Properties"
+   - Select "Rename this PC"
+   - Rename to "target-PC"
+   - Select "Next"
+   - Select "Restart Now"
      
-Update static IP to 192.168.10.100
-- In command prompt, run IP config to view current IPv4
-- Navigate to network icon at the bottom right of the window
-- Open Network & Internet Settings
-- Change adapter options
-- Right click the adapter, select Properties
-- Select Internet Protocol Version 4 (TCP/IPv4) Properties
-- Select Use the following IP address
-- Configure as shown below **insert ss**
-- Run IP config to view updated IPv$
+- Update static IP to 192.168.10.100
+   - Open command prompt
+   - Run: ipconfig
+      - this will display current IPv4
+   - Navigate to network icon at the bottom right of the window
+   - Select "Open Network & Internet Settings"
+   - Select "Change adapter options"
+   - Right click the adapter, Ethernet
+   - Select "Properties"
+   - Select "Internet Protocol Version 4 (TCP/IPv4)" > "Properties"
+   - Select "Use the following IP address"
+   - Configure as shown below:
+     
+![windows static IP](https://github.com/user-attachments/assets/f1388824-1798-4019-8672-794cb4933393)
 
-Install Splunk Universal Forwarder on target-PC
-- Run Splunk VM (this will not work if VM is not running)
-- In the target-PC, open the browser and type 192.168.10.10:8000 blah blah fix blah blah
-- In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a> and 
+   - Run IP config to view updated IPv4
+
+![cmnd prompt](https://github.com/user-attachments/assets/38e0c671-84ff-4246-b9e3-f668b4fc1809)
+
+- Install Splunk Universal Forwarder on target-PC
+   - Run Splunk VM (this will not work if VM is not running)
+   - In the target-PC, open the browser and type 192.168.10.10:8000 blah blah fix blah blah
+   - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a> and 
 
 Install Sysmon
 - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
