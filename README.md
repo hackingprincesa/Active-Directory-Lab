@@ -279,7 +279,22 @@ The steps above did not work for me as I had a different configuration file, but
    - Run Splunk VM (the following steps will not work if VM is not running)
    - In the target-PC, open the browser and type 192.168.10.10:8000
       - Splunk listens on port 8000 
-   - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a> and 
+   - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a>
+      - Create an account
+      - Select "Products"
+      - Select "Free Trials & Downloads"
+      -  Scroll down to Universal Forwarder & select "Get My Free Download"
+      -  Select the compatible OS
+   - Once download is completed, double click the msi file
+      - Select "Check this box to accept the License Agreemnent"
+      - Select "An on-premises Splunk Enterprise Instance"
+      - Select "Next"
+      - Choose your credentials
+      - For "Receiving Indexer", this is going to be our Splunk Server's IP address
+         - Hostname or IP: 192.168.10.10
+         - Default port for Splunk when receiving events is: 9997
+      - Select "Next"
+      - Install  
 
 Install Sysmon
 - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
