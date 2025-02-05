@@ -247,6 +247,8 @@ The steps above did not work for me as I had a different configuration file, but
 ![splnk login](https://github.com/user-attachments/assets/647ecc3c-8549-4d9b-ac4f-1ec626b56d54)
   
 ***3. Configure Windows Machine***
+
+Please note that configuring the Windows Machine and the Windows Server is extremely similar. The main difference is that the Windows Machine will be renamed to "target-PC", meanwhile the Windows Server will be renamed to "ADDC01". Additionally, the Windows Machine's static IP address will be updated to 192.168.10.100, and the Windows Server's static IP will be updated to 192.168.10.7.
    
 - Rename the host name of machine
    - In the Start Menu search, search "PC"
@@ -275,7 +277,7 @@ The steps above did not work for me as I had a different configuration file, but
 
 ![cmnd prompt](https://github.com/user-attachments/assets/38e0c671-84ff-4246-b9e3-f668b4fc1809)
 
-- Install Splunk Universal Forwarder on target-PC
+- Install Splunk Universal Forwarder on target-PC (Please note: installing Splunk Universal Forwarder and Sysmon on the ADDC VM will follow these exact same steps)
    - Run Splunk VM (the following steps will not work if VM is not running)
    - In the target-PC, open the browser and type 192.168.10.10:8000
       - Splunk listens on port 8000 
@@ -382,12 +384,204 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 
    - Select "Start" the service
      
-Now, we have our Sysmon & Splunk Universal Forwarder installed along with our updated inputs.conf file.\
+Now, we have our Sysmon & Splunk Universal Forwarder installed along with our updated inputs.conf file.
 
 - Finalize Splunk Server configuration
-   - On the target-PC, 
+   - On the target-PC, go to Splunk web portal
+      - Search 192.168.10.10:8000 in browser
+      - Splunk VM must be running in order for portal to work
+      - Log on with credentials created during Splunk install on Splunk Server
+   - Once logged on, create "endpoint" index
+      - Select "Settings"
+      - Select "Indexes"
+      - Select "New Index"
+      - Index Name: endpoint
+      - Select "Save"
+        
+![new index](https://github.com/user-attachments/assets/ea3654cd-9bd3-4cfe-9b00-d872b1b5ae22)
+
+   - Next, enable Splunk Server to receive data
+      - Select "Settings"
+      - Select "Forwarding and receiving"
+      - Under "Receive data", select "Configure receiving"
+      - Select "New Receiving Port"
+      - Listen on this port: 9997 
+         - If you recall during the set up, 9997 is the default port
+      - Select "Save"
+   - Should now see data coming in from target-PC (Please note: installing Splunk Universal Forwarder and Sysmon on the ADDC VM will follow these exact same steps, hence why both target-PC and ADDC are displayed)
+      - Select "Search & Reporting"
+      - Search "index=endpoint"
+      - Scroll down to "host" and you will see 2 hosts 
    
+![Splunk hosts](https://github.com/user-attachments/assets/e51494bd-bfea-47c8-9f24-3bbf92377e75)
+
 ***5. Configure Windows Server***
+
+- Rename the host name of machine
+   - In the Start Menu search, search "PC"
+   - Select "Properties"
+   - Select "Rename this PC"
+   - Rename to "ADDC01"
+   - Select "Next"
+   - Select "Restart Now"
+     
+- Update static IP to 192.168.10.7
+   - Open command prompt
+   - Run: ipconfig
+      - this will display current IPv4
+   - Navigate to network icon at the bottom right of the window
+   - Select "Open Network & Internet Settings"
+   - Select "Change adapter options"
+   - Right click the adapter, Ethernet
+   - Select "Properties"
+   - Select "Internet Protocol Version 4 (TCP/IPv4)" > "Properties"
+   - Select "Use the following IP address"
+   - Configure as shown below:
+     
+![windows static IP](https://github.com/user-attachments/assets/f1388824-1798-4019-8672-794cb4933393)
+
+   - Run ipconfig to view updated IPv4
+
+![cmnd prompt](https://github.com/user-attachments/assets/38e0c671-84ff-4246-b9e3-f668b4fc1809)
+
+- Install Splunk Universal Forwarder on target-PC (Please note: installing Splunk Universal Forwarder and Sysmon on the ADDC VM will follow these exact same steps)
+   - Run Splunk VM (the following steps will not work if VM is not running)
+   - In the target-PC, open the browser and type 192.168.10.10:8000
+      - Splunk listens on port 8000 
+   - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a>
+      - Create an account
+      - Select "Products"
+      - Select "Free Trials & Downloads"
+      -  Scroll down to Universal Forwarder & select "Get My Free Download"
+      -  Select the compatible OS
+   - Once download is completed, double click the msi file
+      - Select "Check this box to accept the License Agreemnent"
+      - Select "An on-premises Splunk Enterprise Instance"
+      - Select "Next"
+      - Choose your credentials
+      - For "Receiving Indexer", this is going to be our Splunk Server's IP address
+         - Hostname or IP: 192.168.10.10
+         - Default port for Splunk when receiving events is: 9997
+      - Select "Next"
+      - Select "Install"
+   - UniversalForwarder Setup pop up will flash orange
+      - Select "Finish"  
+
+- Install Sysmon
+   - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
+      - Select "Download Sysmon" 
+   - Navigate to <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml">Sysmon's Configuration File</a> on GitHub
+      - This is the sysmon configuration that we will be using
+   - Select "Raw"
+     
+![sysmon git](https://github.com/user-attachments/assets/b9d900d1-ad9a-4a4e-8e64-83191e12ee15)
+
+   - Save in downloads 
+   - Extract the Sysmon file
+      - Navigate to downloads directory
+      - Right click "Sysmon"
+      - Select "Extract All"
+      - Select "Extract"
+   - Copy the file path
+     
+![copy file path](https://github.com/user-attachments/assets/0c4718e4-afbc-4962-95b7-ac663126f357)
+        
+   - Open PowerShell as administrator
+   - Change directory into the file path 
+      - Run: cd (Paste the file path of the extracted directory here)
+      - ex. cd C:\Users\hacki\Downloads\Sysmon 
+   - Run: .\Sysmon64.exe -i ..\sysmonconfig.xml
+      - -i flag indicates that we want to specify a configuration file
+      - ../ allows us to go back one directory 
+         - sysmon config file is locaed under downloads directory so ../ will allow us to do that
+   - Hit "Enter"
+   - Select "Agree" to install Sysmon
+   - Screen will display "Sysmon64 started"
+   - Close PowerShell
+ 
+
+- Configure Splunk Unviersal Forwarder to specify what data we want to send to our Splunk Server
+   - Do this by configuring file called "inputs.conf"
+   - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > default > inputs.conf
+      - Do NOT want to edit the inputs.conf file under the default directory
+   - Create a new file under the local directory and name it inputs.conf
+      - Open Notepad as administrator and enter the below information:
+         - This instructs Splunk Universal Forwarder to push events related to Application, Security, System, and Sysmon over to Splunk Server
+         - Take note of "index=endpoint", whatever falls under these categories will be sent over Splunk and placed under the index "endpoint". If our Splunk Server does not have an index named endpoint, it will not receive any of these events. 
+
+
+```
+[WinEventLog://Application]
+index = endpoint
+disabled = false
+
+[WinEventLog://Security]
+index = endpoint
+disabled = false
+
+[WinEventLog://System]
+index = endpoint
+disabled = false
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+index = endpoint
+disabled = false
+renderXml = true
+source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+
+```
+   - Save file 
+      - Save under local directory
+         - File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local > inputs.conf
+      - File Name: inputs.conf
+      - Save as type; All Files
+      - Save
+   - Restart
+      - Any time you update "inputs.conf" file, you must restart Splunk's Universal Forwarder service
+      - Open "Services" as administrator
+      - Find "SplunkForwarder"
+         - Double click "SplunkForwarder"
+         - Select "Lof On"
+         - Select "Local System Account"
+         - Select "Apply"
+         - Select "Ok"
+      - Right click "SplunkForwarder" and select "Restart" or click "Restart" on the top left
+
+![restart splunkfwd](https://github.com/user-attachments/assets/59ca3d70-f3e7-4d99-9734-8054a10d038c
+
+   - Select "Start" the service
+     
+Now, we have our Sysmon & Splunk Universal Forwarder installed along with our updated inputs.conf file.
+
+- Finalize Splunk Server configuration
+   - On the target-PC, go to Splunk web portal
+      - Search 192.168.10.10:8000 in browser
+      - Splunk VM must be running in order for portal to work
+      - Log on with credentials created during Splunk install on Splunk Server
+   - Once logged on, create "endpoint" index
+      - Select "Settings"
+      - Select "Indexes"
+      - Select "New Index"
+      - Index Name: endpoint
+      - Select "Save"
+        
+![new index](https://github.com/user-attachments/assets/ea3654cd-9bd3-4cfe-9b00-d872b1b5ae22)
+
+   - Next, enable Splunk Server to receive data
+      - Select "Settings"
+      - Select "Forwarding and receiving"
+      - Under "Receive data", select "Configure receiving"
+      - Select "New Receiving Port"
+      - Listen on this port: 9997 
+         - If you recall during the set up, 9997 is the default port
+      - Select "Save"
+   - Repeat these steps for the ADDC VM as well.  
+   - Should now see data coming in from target-PC (Please note: installing Splunk Universal Forwarder and Sysmon on the ADDC VM will follow these exact same steps, hence why both target-PC and ADDC are displayed)
+      - Select "Search & Reporting"
+      - Search "index=endpoint"
+      - Scroll down to "host" and you will see 2 hosts 
+   
+![Splunk hosts](https://github.com/user-attachments/assets/e51494bd-bfea-47c8-9f24-3bbf92377e75)
 
 **Phase 3: Active Directory and Control Domain**
 
