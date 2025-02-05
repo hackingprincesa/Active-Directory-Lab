@@ -374,13 +374,13 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
       - Open "Services" as administrator
       - Find "SplunkForwarder"
          - Double click "SplunkForwarder"
-         - Select "Lof On"
+         - Select "Log On"
          - Select "Local System Account"
          - Select "Apply"
          - Select "Ok"
       - Right click "SplunkForwarder" and select "Restart" or click "Restart" on the top left
 
-![restart splunkfwd](https://github.com/user-attachments/assets/59ca3d70-f3e7-4d99-9734-8054a10d038c
+![restart splunkfwd](https://github.com/user-attachments/assets/04c81d92-c3f7-413a-bbcb-50f9af7c1b76)
 
    - Select "Start" the service
      
@@ -412,8 +412,9 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
       - Select "Search & Reporting"
       - Search "index=endpoint"
       - Scroll down to "host" and you will see 1 host, which is the target-PC
-         - Once Windows Server is configured, you will see 2 hosts.  
-   ![1 host](https://github.com/user-attachments/assets/d8689fc6-1742-411c-9bf5-63a065210471)
+         - Once Windows Server is configured, you will see 1 host  
+
+![1 host](https://github.com/user-attachments/assets/d8689fc6-1742-411c-9bf5-63a065210471)
 
 
 ***5. Configure Windows Server***
@@ -542,7 +543,7 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
       - Open "Services" as administrator
       - Find "SplunkForwarder"
          - Double click "SplunkForwarder"
-         - Select "Lof On"
+         - Select "Log On"
          - Select "Local System Account"
          - Select "Apply"
          - Select "Ok"
