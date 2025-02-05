@@ -172,14 +172,33 @@ The steps above did not work for me as I had a different configuration file, but
 
 ***2. Install Splunk***
    
-   - Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
-   - Navigate back to Splunk VM and run sudo apt-get install virtualbox-guest-additions-iso
-   - Navigate to Devices > Shared Folders > Shared Folders Settings
-   - Run sudo reboot
-   - Run sudo apt-get install virtualbox-guest-utils
-   - Reboot
-   - Run sudo adduser <your username> vboxsf
-   Create a new directory called "AD Project"
+- Navigate to <a href="https://www.splunk.com/">Splunk</a> download free trial of Splunk Enterprise
+   - Select Linux as OS
+   - Select ".deb" file
+   - Save into preferred directory
+- Navigate back to Splunk VM
+   - Run: sudo apt-get install virtualbox
+      - this will display what options are available
+   - Run: sudo apt-get install virtualbox-guest-additions-iso
+   - Type "y"
+   - Click "Enter"
+   - Once installed, run: clear
+- Navigate to Devices (on the top left of the screen) > Shared Folders > Shared Folders Settings
+   - Add a folder
+      - Folder Path: select path where we saved our Splunk installer
+      - Foler Name: leave as default
+      - Select: Read-only, Auto-mount, and Make Permenant
+      - Click "Ok" 
+- In Splunk, run: sudo reboot
+   - Once rebooted, log back in
+   - Run: sudo adduser <your username> vboxsf
+      - ex. sudo adduser username vboxsf
+   - If you receive a "group vboxsf does not exist" error, we may need some additional guest installations
+      - Run: sudo apt-get install virtualbox
+         - this will display what options are available
+      - Run: sudo apt-get install virtualbox-guest-utils
+      - Reboot
+- Create a new directory called "AD Project"
    - Run mkdir share** to create a new directory called "AD Project".
 
 Now run sudo mount -t vboxsf -o uid=1000,gid=1000 <directory name where .deb file is located> share/.
