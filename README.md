@@ -369,7 +369,7 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
       - Save
    - Restart
       - Any time you update "inputs.conf" file, you must restart Splunk's Universal Forwarder service
-      - Search "Services" and run as administrator
+      - Open "Services" as administrator
       - Find "SplunkForwarder"
          - Double click "SplunkForwarder"
          - Select "Lof On"
@@ -385,6 +385,7 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 Now, we have our Sysmon & Splunk Universal Forwarder installed along with our updated inputs.conf file.\
 
 - Finalize Splunk Server configuration
+   - On the target-PC, 
    
 ***5. Configure Windows Server***
 
