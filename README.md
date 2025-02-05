@@ -453,7 +453,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
    - In the target-PC, open the browser and type 192.168.10.10:8000
       - Splunk listens on port 8000 
    - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a>
-      - Create an account
+      - Log on to account
       - Select "Products"
       - Select "Free Trials & Downloads"
       -  Scroll down to Universal Forwarder & select "Get My Free Download"
