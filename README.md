@@ -676,7 +676,7 @@ Active Directory is now set up and our server is now promoted to domain controll
 
 ***Summary***
 
-We have successfully created a new user, joined our computer to a new domain, and logged in as a domain user.
+We have successfully configured our Active Directory server, created new users, joined our computer to a new domain, and logged in as a domain user.
 
 ![welcome jenny](https://github.com/user-attachments/assets/d731160b-07b3-43b6-ad1c-751e7a178469)
 
