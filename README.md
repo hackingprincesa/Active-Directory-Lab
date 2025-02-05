@@ -332,9 +332,35 @@ The steps above did not work for me as I had a different configuration file, but
  
 
 - Configure Splunk Unviersal Forwarder to specify what data we want to send to our Splunk Server
-   - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local
-   - Open Notepad as administrator and enter the following:
-   - insert ss***
+   - Do this by configuring file called "inputs.conf"
+   - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > default > inputs.conf
+      - Do NOT want to edit the inputs.conf file under the default directory
+   - Create a new file under the local directory and name it inputs.conf
+      - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local > inputs.conf
+      - Open Notepad as administrator and enter the below information:
+         - This instructs Splunk Universal Forwarder to push events related to 
+
+
+```
+[WinEventLog://Application]
+index = endpoint
+disabled = false
+
+[WinEventLog://Security]
+index = endpoint
+disabled = false
+
+[WinEventLog://System]
+index = endpoint
+disabled = false
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+index = endpoint
+disabled = false
+renderXml = true
+source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+
+```
    - Save file as 
    
 ***5. Configure Windows Server***
