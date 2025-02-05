@@ -186,7 +186,7 @@ The steps above did not work for me as I had a different configuration file, but
 - Navigate to Devices (on the top left of the screen) > Shared Folders > Shared Folders Settings
    - Add a folder
       - Folder Path: select path where we saved our Splunk installer
-      - Foler Name: leave as default
+      - Foler Name: leave as default (AD-Project in our case)
       - Select: Read-only, Auto-mount, and Make Permenant
       - Click "Ok" 
 - In Splunk, run: sudo reboot
@@ -195,13 +195,20 @@ The steps above did not work for me as I had a different configuration file, but
       - ex. sudo adduser username vboxsf
    - If you receive a "group vboxsf does not exist" error, we may need some additional guest installations
       - Run: sudo apt-get install virtualbox
-         - this will display what options are available
+         - This will display what options are available
       - Run: sudo apt-get install virtualbox-guest-utils
-      - Reboot
-- Create a new directory called "AD Project"
-   - Run mkdir share** to create a new directory called "AD Project".
-
-Now run sudo mount -t vboxsf -o uid=1000,gid=1000 <directory name where .deb file is located> share/.
+      - Run: sudo reboot
+      - Run: sudo adduser username vboxsf
+         - User should be added to group now
+- Create a new directory called "Share"
+   - Run: mkdir Share
+   - Run: ls
+      - Newly created directory "Share" should be listed 
+- Now, mount our shared folder onto our directory called "Share"
+   - Run: sudo mount -t vboxsf -o uid=1000,gid=1000 <directory name where .deb file is located> share/
+      - ex. sudo mount -t vboxsf -o uid=1000,gid=1000 AD-Project share/
+      - If you forget what your shared folder name is:
+         - Navigate to Devices > Shared Folders > Shared Folders Settings
 
 Verify completion with ls -la, "Share" should be highlighted. Navigate to the share directory using cd share/ and run ls -la once more to view all the files listed in that directory. Install splunk by running sudo dpkg -i splu<hit tab to auto-complete>
 
@@ -214,41 +221,41 @@ blah blah blah
 ***3. Configure Windows Machine***
    
 Rename the PC
-   - In the Start Menu search, search "About"
-   - Rename PC to "target-PC"
+- In the Start Menu search, search "About"
+- Rename PC to "target-PC"
      
 Update static IP to 192.168.10.100
-   - In command prompt, run IP config to view current IPv4
-   - Navigate to network icon at the bottom right of the window
-   - Open Network & Internet Settings
-   - Change adapter options
-   - Right click the adapter, select Properties
-   - Select Internet Protocol Version 4 (TCP/IPv4) Properties
-   - Select Use the following IP address
-   - Configure as shown below **insert ss**
-   - Run IP config to view updated IPv$
+- In command prompt, run IP config to view current IPv4
+- Navigate to network icon at the bottom right of the window
+- Open Network & Internet Settings
+- Change adapter options
+- Right click the adapter, select Properties
+- Select Internet Protocol Version 4 (TCP/IPv4) Properties
+- Select Use the following IP address
+- Configure as shown below **insert ss**
+- Run IP config to view updated IPv$
 
 Install Splunk Universal Forwarder on target-PC
-   - Run Splunk VM (this will not work if VM is not running)
-   - In the target-PC, open the browser and type 192.168.10.10:8000 blah blah fix blah blah
-   - In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a> and 
+- Run Splunk VM (this will not work if VM is not running)
+- In the target-PC, open the browser and type 192.168.10.10:8000 blah blah fix blah blah
+- In the target-PC, visit <a href="https://www.splunk.com/">Splunk</a> and 
 
 Install Sysmon
-   - In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
-   - Navigate to <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml">Sysmon's Configuration File</a> on GitHub
-   - Click "raw"
-   - Save the file
-   - Extract the Sysmon file
-   - Open PowerShell as administrator
-   - Copy and Paste the URL of the extracted directory here
-   - Run .\Sysmon64.exe -i ..\sysmonconfig.xml
-   - Click "Agree"
+- In the target-PC, navigate to <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Downloads</a>
+- Navigate to <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml">Sysmon's Configuration File</a> on GitHub
+- Click "raw"
+- Save the file
+- Extract the Sysmon file
+- Open PowerShell as administrator
+- Copy and Paste the URL of the extracted directory here
+- Run .\Sysmon64.exe -i ..\sysmonconfig.xml
+- Click "Agree"
 
 Configure Splunk Unviersal Forwarder to specify what data we want to send to our Splunk Server
-   - Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local
-   - Open Notepad as administrator and enter the following:
-   - insert ss***
-   - Save file as 
+- Navigate to File Explorer > Local Disk (C:) > Program Files > SplunkUniversalForwarder > etc > system > local
+- Open Notepad as administrator and enter the following:
+- insert ss***
+- Save file as 
    
 ***5. Configure Windows Server***
 
