@@ -565,6 +565,10 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
    
 ![Splunk hosts](https://github.com/user-attachments/assets/e51494bd-bfea-47c8-9f24-3bbf92377e75)
 
+Summary
+
+We have successfully installed Sysmon and Splunk on both our Windows machine (target-PC) and Windows Server (ADDC01). Now, when logged into the Splunk Server on either machine, you should be able to view the telemetry from both machines. 
+
 **Phase 3: Active Directory and Control Domain**
 
 1. Setup Active Directory Domain Services on Windows Server
