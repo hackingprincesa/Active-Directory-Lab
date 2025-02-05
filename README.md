@@ -439,11 +439,11 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
    - Select "Use the following IP address"
    - Configure as shown below:
      
-![windows static IP](https://github.com/user-attachments/assets/f1388824-1798-4019-8672-794cb4933393)
+![addc ip](https://github.com/user-attachments/assets/c7dc690f-405f-4408-912b-d1d686efe638)
 
    - Run ipconfig to view updated IPv4
 
-![cmnd prompt](https://github.com/user-attachments/assets/38e0c671-84ff-4246-b9e3-f668b4fc1809)
+![addc static](https://github.com/user-attachments/assets/29b3e82b-bcdb-4826-b59c-b8793a461d57)
 
 - Install Splunk Universal Forwarder on target-PC (Please note: installing Splunk Universal Forwarder and Sysmon on the ADDC VM will follow these exact same steps)
    - Run Splunk VM (the following steps will not work if VM is not running)
