@@ -767,6 +767,7 @@ Here, you will see 20 lines.
 - Open passwords.txt
 	- Run: cat passwords.txt
  		-  Should see the 20 lines
+     
 ![kali pw](https://github.com/user-attachments/assets/70141978-c3c0-4255-84dd-dfc3875c48bc)
 
 - Let’s say we want to target a certain PW
@@ -775,7 +776,8 @@ Here, you will see 20 lines.
    		- Add PW at end
      		- Save by holding control + x
        		- Type "Y"
-         	- Enter 
+         	- Enter
+            
 ![kali PW file edit](https://github.com/user-attachments/assets/5ae3e437-f6bc-4be6-b664-63066a1caf54)
 
 - Verify that edit was saved
@@ -794,40 +796,53 @@ Here, you will see 20 lines.
   		- Will prompt you to logon with administrator credentials
   	- Select Remote tab
   	- Select Allow remote connections to this computer
+  	  
 ![allow RDP](https://github.com/user-attachments/assets/4c97d85e-6d9e-4684-845c-4f0d8b70bca7)
-
   	- Select Select Users…
   	- Select Add
   	- Add your users
   		- Type "jsmith" for Jenny Smith, then select "Check Names"
   	 	- Type "tsmith" for Terry Smith, then select "Check Names"
   	- Select OK
-  		- Here you will see both users added	 
+  		- Here you will see both users added
+  	     
 ![RDP](https://github.com/user-attachments/assets/616ed192-c66c-43d0-a56b-334c2165088d)
-
   	- Select OK
   	- Select Apply
   	- Select OK
+   
 - We have successfully enabled remote desktop onto target-PC.
 	- You can also enable RDP on your ADDC machine if you'd like. 
   
-Go to Kali Linux machine
-Open terminal
-Use tool
-     crowbar -h
-       crowbar -b rdp -u tmsith -C passwords.txt -s 192.168.10.100/32
-       -b specifies service
-       -u specifies account of interest
-    -C specify a PW list
- -s to specify source IP (target machine’s IP)
-       /32 instead of /24 because I want to only target this one IP 
-Open Splunk to see what telemetry was generated
-       192.168.10.10:8000
-Select Search & Reporting
-Narrow down search 
-    index=endpoint smith
-Select event code
-      you will see a total count of 78 for event code 4625
+- Open Kali Linux machine
+- Open terminal
+- Open crowbar's, the brute force tool, help menu
+	- Run: crowbar -h
+ 	- This command allows us to see what options are available. The service that we are interested in is RDP; hence, why we are using this tool & why we 	enabled RDP.
+
+![crowbar -hh](https://github.com/user-attachments/assets/584e9efa-afc1-404c-8cc2-fca84056b0c3)
+
+- Attack
+	- Run: crowbar -b rdp -u tmsith -C passwords.txt -s 192.168.10.100/32
+ 		- b specifies service (rdp)
+  		- u specifies account of interest (tsmith)
+   		- C specify a PW list (passwords.txt)
+   		- s to specify source IP (target machine’s IP)
+     			- must specify a cider notation 
+   			- use /32 instead of /24 because I want to only target this one IP
+        
+Once we execute crowbar, it will start trying out all of the password's that are listed under the password.txt file 
+        
+![crowbar](https://github.com/user-attachments/assets/e479b094-41ab-4aa2-9ce4-08dc054ca656)
+
+- View telemetry generared on Splunk
+	- Open Splunk
+		- Search "192.168.10.10:8000" in browser
+  	- Select Search & Reporting
+  	- Narrow down search 
+  		- Search "index=endpoint tsmith"
+  	 - Select EventCode under "Interesting Fields"
+  	 	- Here, you will see a total count of 78 for event code 4625
      google event id’s you don’t know ex. 4625 is an account failed to log on
 Select 4625, it will update in search bar
 Look at the time of all events, will see that they all happened around the same time, which is a clear indicator of a brute force attack
