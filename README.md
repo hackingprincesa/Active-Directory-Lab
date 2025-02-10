@@ -843,7 +843,7 @@ Once we execute crowbar, it will start trying out all of the password's that are
 
 View telemetry generared on Splunk
 
-- Open Splunk
+- Open Splunk in the Windows 10 (target-PC) machine
 	- Search "192.168.10.10:8000" in browser
 - Select Search & Reporting
 - Narrow down search
@@ -872,10 +872,11 @@ View telemetry generared on Splunk
 <img width="466" alt="attacker IP " src="https://github.com/user-attachments/assets/d2a64956-df2a-4597-adcf-2f79ae6bf62b" />
 
 
-***ART***
+***Use ART to Run Tests on Target Machine***
 
-Lastly, we are going to use Atomic Red Team (ART) to perform some attacks
+Atomic Red Team is an open source library of tests designed to test your organization's security controls.
 
+- Start the Windows 10 (target-PC) machine
 - Open Powershell as an administrator
 	- Run: Set-ExecutionPolicy Bypass CurrentUser
 	- Type "Y"
@@ -890,63 +891,76 @@ Lastly, we are going to use Atomic Red Team (ART) to perform some attacks
   	- Select This PC
   	- Select C drive
   	- Select “Select Folder”
-  		- Will need to logon as administraot
+  		- Will need to logon as administrator
   	- Will see the exclusion for the c drive
 
 ![add an exlusion on Microsoft Defender](https://github.com/user-attachments/assets/acf45bdd-6642-4751-81d1-451514788631)
 
-- Install ART framework
-Download ART zips onto Windows target-PC
-Create a new folder in C drive
-    Name it Atomic Red Team
-Move zip files to the ART folder
-Extract files
-Once extracted, can delete the zips
-Clean up files 
-there’s a duplicate directory, make sure to move appropriate files to one directory and delete the duplicate
-Next, delete “master” out of file name “invoke-atomicredteam-master”
-    invoke-atomicredteam
-Select atomic-red-team-master
-    Move atomics file to Atomic Red Team folder that we created
-    img
-Set up powershell
-<Going to follow invoke-atomicredteam’s link regarding installation
-Powershell can’t run scripts so run command 
-Set-ExecutionPolicy Bypass CurrentUser or powershell -exec bypass
-      Y
-Install nodule
-Copy script from github
-Import module
-    copy script from github
-Now you will use one of the tactics from the atomics folder
-Choose which tactic you want to use
-Run: Invoke-AtomicTest T1136.001
-        This attack created a new windows admin user called “newlocaluser”
-This will generate telemetry
+- On the target-PC, visit <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
+	- Select Code
+ 	- Select Download ZIP
+
+![code ART](https://github.com/user-attachments/assets/49820354-592e-4451-bc60-7ea34bb8e61a)
+
+- Scroll down on <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
+	- Select Invoke-Atomic
+		- Select Code
+ 		- Select Download ZIP
+     
+- Create a new folder in C drive
+	- Name the folder "AtomicRedTeam"
+ - Move zip files that we downloaded to the "AtomicRedTeam" folder
+   
+ - Extract files
+ 	- If you didn't turn off "Virus & threat protection" earlier, the attacks in these folders would set off a plethora of alarms on advising that a 	threat has been detected  
+ - Once extracted, delete the zips
+ - Clean up files
+ 	- There’s a duplicate directory, make sure to move appropriate files to one directory and delete the duplicate directory
+    
+  - Delete “master” out of file name “invoke-atomicredteam-master”
+  	- invoke-atomicredteam
+     
+- Select atomic-red-team-master
+- Move "atomics" file to AtomicRedTeam folder that we created
+	- Now, there should be 3 folders in the AtomicRedTeam folder 
+
+![ART folder ](https://github.com/user-attachments/assets/fa5b5cea-fed0-484d-a1e3-7f2e4ecbdb9c)
+
+Next, we are going to setup powershell by following the installaton instructions on <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
+
+- Visit <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
+- Select Installation and Usage instructions
+	- Here you will find the scripts that we will be copying into PowerShell 
+- Select Installation 
+- Powershell can’t run scripts so we will combat by first running:
+	- Run: powershell -exec bypass or set-ExecutionPolicy Bypass CurrentUser
+  	- Type "Y"
+  	- With this command, we can now run scripts
+- Install module
+	- Run: Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser 
+- Import module
+	- Run: Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+- Now you will use one of the tactics from the atomics folder
+	- Choose which tactic you want to use
+ 	- Run: Invoke-AtomicTest T1136.001
+  		- This attack created a new windows admin user called “newlocaluser”
+- This will generate telemetry
 - Search in Splunk
 	- index=endpoint NewLocalUser
  	- If no events, that will tell you that you’re blind to this activity. If an attacker compromised system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
 - Perform another attack
-	Invoke-AtomicTest T1059.001
-        This attack is called Command and Scripting Interpreter using Powershell
+	- Invoke-AtomicTest T1059.001
+ 	- This attack is called Command and Scripting Interpreter using Powershell
 - Search in Splunk
 	- Type "index=endpoint powershell" in search bar
 <Can build alerts to detect both attacks in the future
   
-
-   
-   
-   
-   
-
-## Phase 5: Splunk Telemetry
-
-1. Analyze Attack with Splunk
 
 ## References & Resources:
 - <a href="https://www.youtube.com/watch?v=mWqYyl89QaY&t=541s">Active Directory Project by MyDFIR</a>
 - Microsoft Active Directory Documentation
 - Splunk Documentation
 - <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
+- <a href="https://www.youtube.com/watch?v=_xW3fAumh1c&t=575s">Atomic Red Team YouTube Guide to Setup</a>
 - Sysmon Documentation
 - Splunk Universal Forwarder Documentation
