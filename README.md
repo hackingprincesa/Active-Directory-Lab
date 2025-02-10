@@ -835,30 +835,42 @@ Once we execute crowbar, it will start trying out all of the password's that are
         
 ![crowbar](https://github.com/user-attachments/assets/e479b094-41ab-4aa2-9ce4-08dc054ca656)
 
-- View telemetry generared on Splunk
-	- Open Splunk
-		- Search "192.168.10.10:8000" in browser
-  	- Select Search & Reporting
-  	- Narrow down search 
-  		- Search "index=endpoint tsmith" 
-  	- Select EventCode under "Interesting Fields"
-  	 	- Here, you will see a total count of 78 for event code 4625 meaning that there were 78 failed attempts to logon
-  	  		- Google event id’s you don’t know
-	  	   	- ex. 4625 is an account failed to log 
+View telemetry generared on Splunk
+
+- Open Splunk
+	- Search "192.168.10.10:8000" in browser
+- Select Search & Reporting
+- Narrow down search
+	- Search "index=endpoint tsmith" 
+- Select EventCode under "Interesting Fields"
+	- Here, you will see a total count of 78 for event code 4625 meaning that there were 78 failed attempts to logon
+ 		- Google event id’s you don’t know
+   		- ex. 4625: An account failed to log 
 
 ![4625](https://github.com/user-attachments/assets/d05735cd-79c6-49bd-b766-23759f3f56c9)
 
-  	- Select 4625, it will update in search bar
-Look at the time of all events, will see that they all happened around the same time, which is a clear indicator of a brute force attack
-Search with eventcode=4624 and you will see a 
-4624: An account was successfully logged on 
-Click Show all 70 lines to investigate
-You will see workstation and IP that performed brute force
-Install Atomic Red Team (ART)
-Open Powershell as admin
-Run: Set-ExecutionPolicy Bypass CurrentUser
- Y
-- Install ART framework, but first set an exclusion for the entire c drive as microsoft defender will detect & remove some of the files from ART
+- Select 4625
+	- This will automatically update our query
+- Look at the time of all events
+	- Will see that they all happened around the same time, which is a clear indicator of a brute force attack
+
+![splunk logtimes](https://github.com/user-attachments/assets/9912168d-958e-45c1-b04b-38fa7d026696)
+
+- Search "eventcode=4624" and you will see 1 event
+	- 4624: An account was successfully logged on
+ 	- A successful logon after many failed attempts is another another Indicator of Compromise (IOC).
+- Expand this event to view attack details
+	- Select "Show all 70 lines" to investigate further
+ 	- You will see a workstation named "kali" as well as the IP address that is trying to login; this is who performed the brute force attack
+    
+<img width="466" alt="attacker IP " src="https://github.com/user-attachments/assets/d2a64956-df2a-4597-adcf-2f79ae6bf62b" />
+
+Lastly, we are going to use Atomic Red Team (ART) to perform some attacks
+
+- Open Powershell as an administrator
+	- Run: Set-ExecutionPolicy Bypass CurrentUser
+	- Type "Y"
+- Next, set an exclusion for the entire c drive as Microsoft Defender will detect & remove some of the files from ART
 	- Select on up arrow on Windows
  	- Select Windows Security icon
   	- Select Virus & threat protection
@@ -867,10 +879,13 @@ Run: Set-ExecutionPolicy Bypass CurrentUser
   	- Select Add an exclusion
   	- Select folder
   	- Select This PC
-  	- Select our C drive
+  	- Select C drive
   	- Select “Select Folder”
-You should see the exclusion for the c drive
-    img
+  		- Will need to logon as administraot
+  	- Will see the exclusion for the c drive
+
+![add an exlusion on Microsoft Defender](https://github.com/user-attachments/assets/acf45bdd-6642-4751-81d1-451514788631)
+
 - Install ART framework
 Download ART zips onto Windows target-PC
 Create a new folder in C drive
