@@ -713,6 +713,8 @@ We have successfully configured our Active Directory server, created new users, 
         
 - Update & upgrade repositories
    - Run: sudo apt-get update && sudo apt-get upgrade -y
+ 
+***2. Set up the Attack***
      
 - Set up attack, once update & upgrade is complete
    - First, create a new directory called AD Project
@@ -786,6 +788,8 @@ Here, you will see 20 lines.
     
 ![cd pw file](https://github.com/user-attachments/assets/5df58b44-f3cc-4a49-ac96-65d25566a80f)
 
+***3. Enable RDP***
+
 - Before we launch the attack, we want to enable Remote Desktop Protocol aka RDP
 	- Open Windows target-PC
  	- Enable remote desktop on target-PC
@@ -812,7 +816,9 @@ Here, you will see 20 lines.
   	- Select OK
    
 - We have successfully enabled remote desktop onto target-PC.
-	- You can also enable RDP on your ADDC machine if you'd like. 
+	- You can also enable RDP on your ADDC machine if you'd like.
+
+***4. Attack***
   
 - Open Kali Linux machine
 - Open terminal
@@ -864,6 +870,9 @@ View telemetry generared on Splunk
  	- You will see a workstation named "kali" as well as the IP address that is trying to login; this is who performed the brute force attack
     
 <img width="466" alt="attacker IP " src="https://github.com/user-attachments/assets/d2a64956-df2a-4597-adcf-2f79ae6bf62b" />
+
+
+***ART***
 
 Lastly, we are going to use Atomic Red Team (ART) to perform some attacks
 
@@ -926,13 +935,9 @@ This will generate telemetry
   
 
    
-***2. Set up the Attack***
    
-***3. Enable RDP***
    
-***4. Attack***
    
-***5. ART***
 
 ## Phase 5: Splunk Telemetry
 
