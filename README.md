@@ -840,11 +840,15 @@ Once we execute crowbar, it will start trying out all of the password's that are
 		- Search "192.168.10.10:8000" in browser
   	- Select Search & Reporting
   	- Narrow down search 
-  		- Search "index=endpoint tsmith"
-  	 - Select EventCode under "Interesting Fields"
-  	 	- Here, you will see a total count of 78 for event code 4625
-     google event id’s you don’t know ex. 4625 is an account failed to log on
-Select 4625, it will update in search bar
+  		- Search "index=endpoint tsmith" 
+  	- Select EventCode under "Interesting Fields"
+  	 	- Here, you will see a total count of 78 for event code 4625 meaning that there were 78 failed attempts to logon
+  	  		- Google event id’s you don’t know
+	  	   	- ex. 4625 is an account failed to log 
+
+![4625](https://github.com/user-attachments/assets/d05735cd-79c6-49bd-b766-23759f3f56c9)
+
+  	- Select 4625, it will update in search bar
 Look at the time of all events, will see that they all happened around the same time, which is a clear indicator of a brute force attack
 Search with eventcode=4624 and you will see a 
 4624: An account was successfully logged on 
@@ -854,19 +858,20 @@ Install Atomic Red Team (ART)
 Open Powershell as admin
 Run: Set-ExecutionPolicy Bypass CurrentUser
  Y
-Now, you want to install ART framework, but first set an exclusion for the entire c drive as microsoft defender will detect & remove some of the files from ART
-Select on up arrow on Windows 
-Select Windows Security icon
-Select Virus & threat protection
-Select Manage settings
-Select “Add or remove exclusions”
-Select Add an exclusion
-Select folder
-Select This PC
-Select our C drive
-Select “Select Folder”
+- Install ART framework, but first set an exclusion for the entire c drive as microsoft defender will detect & remove some of the files from ART
+	- Select on up arrow on Windows
+ 	- Select Windows Security icon
+  	- Select Virus & threat protection
+  	- Select Manage settings
+  	- Select “Add or remove exclusions”
+  	- Select Add an exclusion
+  	- Select folder
+  	- Select This PC
+  	- Select our C drive
+  	- Select “Select Folder”
 You should see the exclusion for the c drive
     img
+- Install ART framework
 Download ART zips onto Windows target-PC
 Create a new folder in C drive
     Name it Atomic Red Team
