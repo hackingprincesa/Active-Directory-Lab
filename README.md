@@ -761,30 +761,56 @@ Here, you will see 20 lines.
 	- Run: head -n 20 rockyou.txt > passwords.txt
  	- Run: ls
   		- Now, you will see the rockyou.txt & the passwords.txt file
+      
+![kali - pw   ru file](https://github.com/user-attachments/assets/3f70cdc7-d74c-4454-bbff-971d29bf38e0)
+
 - Open passwords.txt
 	- Run: cat passwords.txt
  		-  Should see the 20 lines
- Let’s say we want to target a certain PW
-       nano passwords.txt
-       this command is to edit the file
-       add PW at end
-       save with control + x
-Before we launch the attack..
-Open Windows target-PC
-Enable remote desktop on target-PC
-Go to the PC’s properties
-Click Advanced system settings
-Will need to logon as admin 
-Go to Remote
-Click Allow remote connections to this computer
-Click Select Users…
-Click Add
-Add your users
-Click OK
-Click OK
-Click Apply
-Click OK
-Now we have enabled remote desktop onto target-PC
+![kali pw](https://github.com/user-attachments/assets/70141978-c3c0-4255-84dd-dfc3875c48bc)
+
+- Let’s say we want to target a certain PW
+	- Run: nano passwords.txt
+ 		- This command allows you to edit the file
+   		- Add PW at end
+     		- Save by holding control + x
+       		- Type "Y"
+         	- Enter 
+![kali PW file edit](https://github.com/user-attachments/assets/5ae3e437-f6bc-4be6-b664-63066a1caf54)
+
+- Verify that edit was saved
+	- Run: cat passwords.txt
+ 	- Should see 21 lines
+    
+![cd pw file](https://github.com/user-attachments/assets/5df58b44-f3cc-4a49-ac96-65d25566a80f)
+
+- Before we launch the attack, we want to enable Remote Desktop Protocol aka RDP
+	- Open Windows target-PC
+ 	- Enable remote desktop on target-PC
+  	- Go to the PC’s properties
+  		- Search PC
+  	 	- Select Properties  
+  	- Select Advanced system settings
+  		- Will prompt you to logon with administrator credentials
+  	- Select Remote tab
+  	- Select Allow remote connections to this computer
+![allow RDP](https://github.com/user-attachments/assets/4c97d85e-6d9e-4684-845c-4f0d8b70bca7)
+
+  	- Select Select Users…
+  	- Select Add
+  	- Add your users
+  		- Type "jsmith" for Jenny Smith, then select "Check Names"
+  	 	- Type "tsmith" for Terry Smith, then select "Check Names"
+  	- Select OK
+  		- Here you will see both users added	 
+![RDP](https://github.com/user-attachments/assets/616ed192-c66c-43d0-a56b-334c2165088d)
+
+  	- Select OK
+  	- Select Apply
+  	- Select OK
+- We have successfully enabled remote desktop onto target-PC.
+	- You can also enable RDP on your ADDC machine if you'd like. 
+  
 Go to Kali Linux machine
 Open terminal
 Use tool
@@ -797,13 +823,13 @@ Use tool
        /32 instead of /24 because I want to only target this one IP 
 Open Splunk to see what telemetry was generated
        192.168.10.10:8000
-Click Search & Reporting
+Select Search & Reporting
 Narrow down search 
     index=endpoint smith
-Click event code
+Select event code
       you will see a total count of 78 for event code 4625
      google event id’s you don’t know ex. 4625 is an account failed to log on
-Click 4625, it will update in search bar
+Select 4625, it will update in search bar
 Look at the time of all events, will see that they all happened around the same time, which is a clear indicator of a brute force attack
 Search with eventcode=4624 and you will see a 
 4624: An account was successfully logged on 
@@ -814,16 +840,16 @@ Open Powershell as admin
 Run: Set-ExecutionPolicy Bypass CurrentUser
  Y
 Now, you want to install ART framework, but first set an exclusion for the entire c drive as microsoft defender will detect & remove some of the files from ART
-Click on up arrow on Windows 
-Click Windows Security icon
-Click Virus & threat protection
-Click Manage settings
-Click “Add or remove exclusions”
-Click Add an exclusion
+Select on up arrow on Windows 
+Select Windows Security icon
+Select Virus & threat protection
+Select Manage settings
+Select “Add or remove exclusions”
+Select Add an exclusion
 Select folder
 Select This PC
 Select our C drive
-Click “Select Folder”
+Select “Select Folder”
 You should see the exclusion for the c drive
     img
 Download ART zips onto Windows target-PC
@@ -836,7 +862,7 @@ Clean up files
 there’s a duplicate directory, make sure to move appropriate files to one directory and delete the duplicate
 Next, delete “master” out of file name “invoke-atomicredteam-master”
     invoke-atomicredteam
-Click atomic-red-team-master
+Select atomic-red-team-master
     Move atomics file to Atomic Red Team folder that we created
     img
 Set up powershell
@@ -845,23 +871,23 @@ Powershell can’t run scripts so run command
 Set-ExecutionPolicy Bypass CurrentUser or powershell -exec bypass
       Y
 Install nodule
-copy script from github
+Copy script from github
 Import module
     copy script from github
 Now you will use one of the tactics from the atomics folder
-choose which tactic you want to use
+Choose which tactic you want to use
 Run: Invoke-AtomicTest T1136.001
         This attack created a new windows admin user called “newlocaluser”
-1. This will generate telemetry
-2. Search in Splunk
-index=endpoint NewLocalUser
-        - [ ] If no events, that will tell you that you’re blind to this activity. If an attacker compromised system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
-1. Perform another attack
-		Invoke-AtomicTest T1059.001
-            - [ ] This attack is called Command and Scripting Interpreter using Powershell
-1. Search in Splunk
-    1. index=endpoint powershell
-2. <Can build alerts to detect both attacks in the future
+This will generate telemetry
+- Search in Splunk
+	- index=endpoint NewLocalUser
+ 	- If no events, that will tell you that you’re blind to this activity. If an attacker compromised system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
+- Perform another attack
+	Invoke-AtomicTest T1059.001
+        This attack is called Command and Scripting Interpreter using Powershell
+- Search in Splunk
+	- Type "index=endpoint powershell" in search bar
+<Can build alerts to detect both attacks in the future
   
 
    
