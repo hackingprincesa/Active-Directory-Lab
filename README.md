@@ -59,7 +59,9 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
    - Select "Next" to allow Windows to install 
       
 ***4. Install Kali Linux***
+
 - Download <a href="https://www.kali.org/">Kali Linux</a>
+
    - Select the Pre-Built Virtual Machine
    - Choose either 64-bit (preferred) or 32-bit depending on your machine
      - To verify your machines specifications, select Windows key > type "System" > select "System Information" > view "System Type"
@@ -74,18 +76,26 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 - Log in with default credentials: kali/kali
 
 ***5. Install Windows Server***
+
 - Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
+
    - Fill out the form
    - Select "64-bit edition" under "ISO downloads"
+     
 - Once downloaded, go to VirtualBox and select "New" to create a new VM
+  
    - Name: choose a name for VM (I named it ADDC since we will be using this as our Active Directory Domain Controller)
    - Folder: select where you want VM to live
    - ISO Image: select ISO image that you just downloaded
    - Check "Skip Unattended Installation" to install OS manually
-- Configure VM specifications (this can vary depending on your computer's specifications):   
+     
+- Configure VM specifications (this can vary depending on your computer's specifications):
+  
    - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
    - Finish
+     
 - Start VM and follow the installation prompts
+  
    - Select "Install Now"
    - Select "Windows Server 2022 Standard Evaluation (Desktop Experience)"
    - Accept the license terms
@@ -93,27 +103,34 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
    - Select "Next" to allow Windows to install
    - Once setup is completed, you will be prompted to create a password
    - Select "Finish"
+     
 - Log in with recently created password
       - Select "No" when asked "Do you want to allow your PC to be discoverable by oth PCs and devices on this network?"
 
 
 ***6. Install Ubuntu Server***
+
 - Download <a href="https://ubuntu.com/server">Ubuntu Server</a>
+
 - Once downloaded, go to VirtualBox and select "New" to create a new VM
    - Name: choose a name for VM (I named it Splunk since we will be using this as our Splunk Server)
    - Folder: select where you want VM to live
    - ISO Image: select ISO image that you just downloaded
    - Check "Skip Unattended Installation" to install OS manually
+     
 - Configure VM specifications (this can vary depending on your computer's specifications):
        - Select 8000 MB RAM for base memory, 2 CPU for processors, 100 GB for virtual hard disk
           - Splunk will require more specs as it will be ingesting data and we'll be running searches on it  
 - Finish
+  
 - Start the VM
+  
    - Select "Try or Install Ubuntu Server"
    - Follow installation prompts; leave as default
    - Fill out "Profile Setup" form, which is where you will choose your credentials
     - Once installed, select "Reboot Now"
     - Click "Enter" when "Failed unmounting" error pops up
+      
 - Once rebooted, logon with recently created credentials
     - run command: sudo apt-get update && sudo apt-get upgrade -y
          - this command will update & upgrade all of our repositories
@@ -129,6 +146,7 @@ You should now have Oracle VM VirtualBox Manager installed, along with four VMs 
 ## Phase 2: Configure the Network
 
 ***1. Setup Communications***
+
 - In Virtual Box, navigate to Tools > Network > NAT Networks > Create
    - Refer to screenshot below for configuration details.
 
