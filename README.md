@@ -595,7 +595,7 @@ We have successfully installed Sysmon and Splunk on both our Windows machine (ta
       - Root domain name: yourdomainname.local
          - Domain name must have top level domain; cannot just be "yourdomainname"
             - ex. hackingprincesa.local, hackingprincesa.test, yourdomainname.test, etc 
-         - Attackers love to attack domain controllers since it has access to everything. Access to this file grants access to everything related to AD                  including passwords hashes.
+         - Attackers love to attack domain controllers since it has access to everything. Access to this file grants access to everything related to AD including passwords hashes.
          - Create a password
          - Install
          - Machine will automatically restart
@@ -635,7 +635,7 @@ Active Directory is now set up and our server is now promoted to domain controll
      
 ![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
 
-   - You will get an error message; this is related to the DNS we configured earlier. Originally, we had our Preferred DNS server set to 8.8.8.8, which is         Google's DNS server. We want to update the Preferred DNS server so that it is pointing to our domain controller, which is 192.168.10.7.
+   - You will get an error message; this is related to the DNS we configured earlier. Originally, we had our Preferred DNS server set to 8.8.8.8, which is Google's DNS server. We want to update the Preferred DNS server so that it is pointing to our domain controller, which is 192.168.10.7.
       - Update the Preferred DNS Server to the domain controller's IP address:
          - Navigate to network icon at the bottom right of the window
          - Select "Open Network & Internet Settings"
@@ -657,6 +657,7 @@ Active Directory is now set up and our server is now promoted to domain controll
    - Now, we can join the domain
       - Search PC > select "Properties" > Advanced system settings > Computer Name > Change
       - Under "Member of", select "Domain"
+      - 
 ![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
 
       - Select "Ok"
