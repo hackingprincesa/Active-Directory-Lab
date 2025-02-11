@@ -989,9 +989,9 @@ Image below is the output PowerShell produces when the command has been complete
 
 - Search in Splunk for telemtry this event has created 
 	- index=endpoint powershell or index=endpoint newlocaluser
- 	- If no events, that will tell you that you’re blind to this activity. If an attacker compromised system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
+ 	- If no events, that will tell you that you’re blind to this activity. If an attacker compromised a system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
 
-In our scenario, it looks like we were able to detect the activity.
+In our scenario, it looks like we were able to detect the activity with "index=endpoint powershell", but not with "index=endpoint newlocaluser". Tests like these show how ART is incredibly valuable for an organization.
 
 ![splunk t1136](https://github.com/user-attachments/assets/962c5847-690e-4d14-9379-1ab1ca40082d)
 
@@ -1003,6 +1003,12 @@ In our scenario, it looks like we were able to detect the activity.
 	- Type "index=endpoint command and scripting" in search bar 
  
 ![T1059](https://github.com/user-attachments/assets/7ec76d1c-168e-4042-8b00-05c7b150d6e2)
+
+***Summary***
+
+Congratulations, you've reached the end of the guide! Your setup should be fully operational, with successful communication between four Virtual Machines: the Windows 10 Target Machine, Kali Linux Attacker Machine, Splunk, and Windows Server. You should now be able to view events in Splunk, test its functionality, and assess defenses using tools like the Crowbar brute-force password cracker, the ART framework, and more.
+
+
 
 
 <Can build alerts to detect both attacks in the future
