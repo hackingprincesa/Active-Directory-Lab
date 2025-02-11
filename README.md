@@ -679,6 +679,7 @@ Active Directory is now set up and our server is now promoted to domain controll
    - Now, we can join the domain
       - Search PC > select "Properties" > Advanced system settings > Computer Name > Change
       - Under "Member of", select "Domain"
+        
 ![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
 
       - Select "Ok"
@@ -816,32 +817,34 @@ Here, you will see 20 lines.
 ***3. Enable RDP***
 
 - Before we launch the attack, we want to enable Remote Desktop Protocol aka RDP
-	- Open Windows target-PC
- 	- Enable remote desktop on target-PC
-  	- Go to the PC’s properties
-  		- Search PC
-  	 	- Select Properties  
-  	- Select Advanced system settings
-  		- Will prompt you to logon with administrator credentials
-  	- Select Remote tab
-  	- Select Allow remote connections to this computer
+- Open Windows target-PC
+- Enable remote desktop on target-PC
+   - Go to the PC’s properties
+   - Search PC
+- Select Properties  
+- Select Advanced system settings
+  - Will prompt you to logon with administrator credentials
+  - Select Remote tab
+  - Select Allow remote connections to this computer
   	  
 ![allow RDP](https://github.com/user-attachments/assets/4c97d85e-6d9e-4684-845c-4f0d8b70bca7)
-  	- Select Select Users…
-  	- Select Add
-  	- Add your users
-  		- Type "jsmith" for Jenny Smith, then select "Check Names"
-  	 	- Type "tsmith" for Terry Smith, then select "Check Names"
-  	- Select OK
-  		- Here you will see both users added
+
+  - Select Select Users…
+  - Select Add
+  - Add your users
+	- Type "jsmith" for Jenny Smith, then select "Check Names"
+  	- Type "tsmith" for Terry Smith, then select "Check Names"
+  - Select OK
+	- Here you will see both users added
   	     
 ![RDP](https://github.com/user-attachments/assets/616ed192-c66c-43d0-a56b-334c2165088d)
-  	- Select OK
-  	- Select Apply
-  	- Select OK
+
+  - Select OK
+  - Select Apply
+  - Select OK
    
 - We have successfully enabled remote desktop onto target-PC.
-	- You can also enable RDP on your ADDC machine if you'd like.
+   - You can also enable RDP on your ADDC machine if you'd like.
 
 ***4. Attack***
   
@@ -897,7 +900,7 @@ View telemetry generared on Splunk
 <img width="466" alt="attacker IP " src="https://github.com/user-attachments/assets/d2a64956-df2a-4597-adcf-2f79ae6bf62b" />
 
 
-***Use ART to Run Tests on Target Machine***
+***5. Use ART to Run Tests on Target Machine***
 
 Atomic Red Team is an open source library of tests designed to test your organization's security controls.
 
