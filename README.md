@@ -404,7 +404,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
       - Index Name: endpoint
       - Select "Save"
         
-![new index](https://github.com/user-attachments/assets/ea3654cd-9bd3-4cfe-9b00-d872b1b5ae22)
+![endpoint - new index](https://github.com/user-attachments/assets/daa3d6fe-c25e-4489-83f5-2c85b3c654c0)
 
    - Next, enable Splunk Server to receive data
       - Select "Settings"
@@ -555,7 +555,7 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
          - Select "Ok"
       - Right click "SplunkForwarder" and select "Restart" or click "Restart" on the top left
 
-![restart splunkfwd](https://github.com/user-attachments/assets/59ca3d70-f3e7-4d99-9734-8054a10d038c
+![restart splunkfwd](https://github.com/user-attachments/assets/59ca3d70-f3e7-4d99-9734-8054a10d038c)
 
    - Select "Start" the service
      
