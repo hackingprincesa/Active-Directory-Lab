@@ -679,9 +679,6 @@ Active Directory is now set up and our server is now promoted to domain controll
    - Now, we can join the domain
       - Search PC > select "Properties" > Advanced system settings > Computer Name > Change
       - Under "Member of", select "Domain"
-        
-![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
-
       - Select "Ok"
       - Will be prompted to enter credentials
          - User the administrator account of the server to log on as it has the appropiate permissions
@@ -1006,19 +1003,15 @@ In our scenario, it looks like we were able to detect the activity with "index=e
 
 ***Summary***
 
-Congratulations, you've reached the end of the guide! Your setup should be fully operational, with successful communication between four Virtual Machines: the Windows 10 Target Machine, Kali Linux Attacker Machine, Splunk, and Windows Server. You should now be able to view events in Splunk, test its functionality, and assess defenses using tools like the Crowbar brute-force password cracker, the ART framework, and more.
+Congratulations, you've reached the end of the guide! Your setup should be fully operational, with successful communication between four Virtual Machines: the Windows 10 Target Machine, Kali Linux Attacker Machine, Splunk Server, and Windows Server (ADDC). You should now be able to view events in Splunk, test its functionality, and assess defenses using tools like the Crowbar brute-force password cracker, the ART framework, and more.
 
-
-
-
-<Can build alerts to detect both attacks in the future
-  
+A huge thanks to MyDFIR on YouTube for the tutorial. I learned so much throughout this process and was able to turn my theoretical knowledge into hands-on experience.  
 
 ## References & Resources:
 - <a href="https://www.youtube.com/watch?v=mWqYyl89QaY&t=541s">Active Directory Project by MyDFIR</a>
-- Microsoft Active Directory Documentation
-- Splunk Documentation
+- <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/active-directory-overview">Microsoft Active Directory Documentation</a>
+- <a href="https://docs.splunk.com/Documentation">Splunk Documentation</a>
 - <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team GitHub</a>
 - <a href="https://www.youtube.com/watch?v=_xW3fAumh1c&t=575s">Atomic Red Team YouTube Guide to Setup</a>
-- Sysmon Documentation
-- Splunk Universal Forwarder Documentation
+- <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon Documentation</a>
+- <a href="https://docs.splunk.com/Documentation/Forwarder">Splunk Universal Forwarder Documentation</a>
