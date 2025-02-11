@@ -78,24 +78,20 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 ***5. Install Windows Server***
 
 - Download <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a>
-
    - Fill out the form
    - Select "64-bit edition" under "ISO downloads"
      
 - Once downloaded, go to VirtualBox and select "New" to create a new VM
-  
    - Name: choose a name for VM (I named it ADDC since we will be using this as our Active Directory Domain Controller)
    - Folder: select where you want VM to live
    - ISO Image: select ISO image that you just downloaded
    - Check "Skip Unattended Installation" to install OS manually
      
 - Configure VM specifications (this can vary depending on your computer's specifications):
-  
    - Select 4000 MB RAM for base memory, 1 CPU for processors, 50 GB for virtual hard disk
    - Finish
      
 - Start VM and follow the installation prompts
-  
    - Select "Install Now"
    - Select "Windows Server 2022 Standard Evaluation (Desktop Experience)"
    - Accept the license terms
@@ -124,7 +120,6 @@ A lab diagram helps organize and plan the setup, showing how different systems, 
 - Finish
   
 - Start the VM
-  
    - Select "Try or Install Ubuntu Server"
    - Follow installation prompts; leave as default
    - Fill out "Profile Setup" form, which is where you will choose your credentials
@@ -684,7 +679,6 @@ Active Directory is now set up and our server is now promoted to domain controll
    - Now, we can join the domain
       - Search PC > select "Properties" > Advanced system settings > Computer Name > Change
       - Under "Member of", select "Domain"
-      - 
 ![member of domain](https://github.com/user-attachments/assets/472f64e4-b870-4b27-8308-0852db7e995c)
 
       - Select "Ok"
