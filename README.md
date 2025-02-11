@@ -205,7 +205,10 @@ The steps above did not work for me as I had a different configuration file, but
 - Create a new directory called "Share"
    - Run: mkdir Share
    - Run: ls
-      - Newly created directory "Share" should be listed 
+      - Newly created directory "Share" should be listed
+
+![share directory](https://github.com/user-attachments/assets/40e15bb1-c81d-4024-a6ca-c805f11b71a6)
+
 - Next, mount our shared folder onto our directory called "Share"
    - Run: sudo mount -t vboxsf -o uid=1000,gid=1000 <directory name where .deb file is located> share/
       - ex. sudo mount -t vboxsf -o uid=1000,gid=1000 AD-Project share/
@@ -216,6 +219,9 @@ The steps above did not work for me as I had a different configuration file, but
       - Error may occur because when you add your user into a new group, it may not reflect until you log out
    - Run: ls -la
       - Should now see that our "share" is now highlighted
+
+![highlighted share in splunk](https://github.com/user-attachments/assets/3280e379-abc0-4cd2-a231-ac85a8072c59)
+
 - Change directories into that share
    - Run: cd share
    - Run: clear
@@ -228,6 +234,9 @@ The steps above did not work for me as I had a different configuration file, but
    - Run: cd /opt/splunk
    - Run: ls -la
       - Here you will notice that all users and groups belong to Splunk, which is a good thing as it limits the permissions to that user
+    
+![cd :opt:splunk](https://github.com/user-attachments/assets/3eff4d56-be78-4771-b914-acf3e478259f)
+
 - Change into user Splunk
    - Run: sudo -u splunk bash
       - Now, we are acting as user Splunk 
