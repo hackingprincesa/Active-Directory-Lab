@@ -940,12 +940,22 @@ Next, we are going to setup powershell by following the installaton instructions
 	- Run: Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser 
 - Import module
 	- Run: Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+ 	- Please take note of the path of the above command. This is why we cleaned up the files a few moments ago.
+
+![powershell -exec bypass  install invoke ART](https://github.com/user-attachments/assets/4d5457aa-3880-4e0f-ab99-6847f1acedb8)
+
 - Now you will use one of the tactics from the atomics folder
 	- Choose which tactic you want to use
  	- Run: Invoke-AtomicTest T1136.001
   		- This attack created a new windows admin user called “newlocaluser”
-- This will generate telemetry
-- Search in Splunk
+
+![ART attack on Powershell](https://github.com/user-attachments/assets/fb653f49-5121-4c64-b82f-46ffa252c123)
+
+Image below is the output PowerShell produces when the command has been completed successfully.
+
+![T1136 attack successful](https://github.com/user-attachments/assets/ac54db04-3326-47e4-a39a-8e8ffe3d441d)
+
+- Search in Splunk for telemtry this event has created 
 	- index=endpoint NewLocalUser
  	- If no events, that will tell you that you’re blind to this activity. If an attacker compromised system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
 - Perform another attack
@@ -953,6 +963,7 @@ Next, we are going to setup powershell by following the installaton instructions
  	- This attack is called Command and Scripting Interpreter using Powershell
 - Search in Splunk
 	- Type "index=endpoint powershell" in search bar
+
 <Can build alerts to detect both attacks in the future
   
 
