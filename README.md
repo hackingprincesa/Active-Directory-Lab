@@ -394,6 +394,9 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
       - Search 192.168.10.10:8000 in browser
          - Splunk VM must be running in order for portal to work
       - Log on with credentials created during Splunk install on Splunk Server
+
+![splunk browser](https://github.com/user-attachments/assets/097c7654-8420-493a-81df-401ba3081e36)
+
    - Once logged on, create "endpoint" index
       - Select "Settings"
       - Select "Indexes"
@@ -726,7 +729,7 @@ We have successfully configured our Active Directory server, created new users, 
    - Crowbar is the tool that we will be using to perform brute force attacks. We can target either our ADDC machine or our target machine.
    - Please note: We are using this tool for educational purposes only; please only attack consenting targets.
 
-- Use rockyou f
+- Use rockyou file
 	- Rockyou is a popular world list that comes with Kali Linux
 - Change to the directory where you will find rockyou file  
 	- Run: cd /usr/share/wordlists/
@@ -944,10 +947,14 @@ Next, we are going to setup powershell by following the installaton instructions
 
 ![powershell -exec bypass  install invoke ART](https://github.com/user-attachments/assets/4d5457aa-3880-4e0f-ab99-6847f1acedb8)
 
-- Now you will use one of the tactics from the atomics folder
+- Verify that module was imported correctly
+	- Run: get-module
+ 	- Should see "Invoke-AtomicRedTeam" script
+    
+- Now, you can use one of the tactics from the atomics folder
 	- Choose which tactic you want to use
  	- Run: Invoke-AtomicTest T1136.001
-  		- This attack created a new windows admin user called “newlocaluser”
+  		- This attack creates a new windows admin user called “newlocaluser”
 
 ![ART attack on Powershell](https://github.com/user-attachments/assets/fb653f49-5121-4c64-b82f-46ffa252c123)
 
@@ -956,13 +963,22 @@ Image below is the output PowerShell produces when the command has been complete
 ![T1136 attack successful](https://github.com/user-attachments/assets/ac54db04-3326-47e4-a39a-8e8ffe3d441d)
 
 - Search in Splunk for telemtry this event has created 
-	- index=endpoint NewLocalUser
+	- index=endpoint powershell or index=endpoint newlocaluser
  	- If no events, that will tell you that you’re blind to this activity. If an attacker compromised system and created a local account with your current settings, you will not be able to detect activity. Hence why ATR is good for SOC as it identifies the gaps and visibility for you and will also generate the telemetry to see if you can actually detect that activity
+
+In our scenario, it looks like we were able to detect the activity.
+
+![splunk t1136](https://github.com/user-attachments/assets/962c5847-690e-4d14-9379-1ab1ca40082d)
+
 - Perform another attack
-	- Invoke-AtomicTest T1059.001
+	- Open PowerShell 
+	- Run: Invoke-AtomicTest T1059.001
  	- This attack is called Command and Scripting Interpreter using Powershell
 - Search in Splunk
-	- Type "index=endpoint powershell" in search bar
+	- Type "index=endpoint command and scripting" in search bar 
+ 
+![T1059](https://github.com/user-attachments/assets/7ec76d1c-168e-4042-8b00-05c7b150d6e2)
+
 
 <Can build alerts to detect both attacks in the future
   
