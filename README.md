@@ -893,8 +893,9 @@ View telemetry generared on Splunk
 - Expand this event to view attack details
 	- Select "Show all 70 lines" to investigate further
  	- You will see a workstation named "kali" as well as the IP address that is trying to login; this is who performed the brute force attack
+  		- If you refer to the diagram that we created in the very first step of this project, you will see that the IP address of our Kali Linux Attacker Machine, 192.168.10.250, matches the IP address in this event 
     
-<img width="466" alt="attacker IP " src="https://github.com/user-attachments/assets/d2a64956-df2a-4597-adcf-2f79ae6bf62b" />
+![attacker IP](https://github.com/user-attachments/assets/d38db8c3-048f-4562-8417-cbbec1bfedd9)
 
 
 ***5. Use ART to Run Tests on Target Machine***
