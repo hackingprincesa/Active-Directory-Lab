@@ -10,10 +10,14 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 - Active Directory: For centralized domain management and user authentication.
 - PowerShell: For scripting and automation of tasks.
 - Splunk Server: For log analysis and monitoring, and SIEM to collect and analyze system logs.
-- Crowbar: For brute force attacks.
-- Atomic Red Team: For simulating adversary tactics via PowerShell.
-- Sysmon: For monitoring and logging system activity on Windows.
 - Splunk Universal Forwarder: For collecting and forwarding log data to Splunk.
+- Crowbar: For simulating brute force attacks.
+- Atomic Red Team: For simulating adversary tactics via PowerShell.
+- Sysmon: For endpoint monitoring and logging system activity on Windows.
+- Windows Server 2022 for Active Directory Domain Services setup
+- Ubuntu Server as a Splunk server
+- Microsoft Windows 10 as the target machine
+- Kali Linux as an attacker machine for simulation
 
 ## Step-by-Step Guide:
 
