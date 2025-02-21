@@ -181,8 +181,8 @@ You should now have Oracle VM VirtualBox Manager installed, along with four VMs 
    version: 2
     ```
    - Save configuration
-   - Run: sudo netplan apply
-   - Run: ip a
+   - Run: ``` sudo netplan apply ```
+   - Run: ``` ip a ```
       - This will verify if IP address persists and is set to 192.168.10.10/24   
    - Reboot
    - Verify connection by running: ping google.com
@@ -196,9 +196,9 @@ You should now have Oracle VM VirtualBox Manager installed, along with four VMs 
    - Select ".deb" file
    - Save into preferred directory
 - Navigate back to Splunk VM
-   - Run: sudo apt-get install virtualbox
+   - Run: ``` sudo apt-get install virtualbox ```
       - this will display what options are available
-   - Run: sudo apt-get install virtualbox-guest-additions-iso
+   - Run: ``` sudo apt-get install virtualbox-guest-additions-iso ```
    - Type "y"
    - Click "Enter"
    - Once installed, run: clear
