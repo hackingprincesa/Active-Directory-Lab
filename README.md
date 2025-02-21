@@ -1006,7 +1006,7 @@ In our scenario, it looks like we were able to detect the activity with "index=e
  
 ![T1059](https://github.com/user-attachments/assets/7ec76d1c-168e-4042-8b00-05c7b150d6e2)
 
-***Summary***
+## Conclusion 
 
 Congratulations, you've reached the end of the guide! Your setup should be fully operational, with successful communication between four Virtual Machines: the Windows 10 Target Machine, Kali Linux Attacker Machine, Splunk Server, and Windows Server (ADDC). You should now be able to view events in Splunk, test its functionality, and assess defenses using tools like the Crowbar brute-force password cracker, the ART framework, and more.
 
