@@ -215,13 +215,13 @@ You should now have Oracle VM VirtualBox Manager installed, along with four VMs 
    - If you receive a "group vboxsf does not exist" error, we may need some additional guest installations
       - Run: sudo apt-get install virtualbox
          - This will display what options are available
-      - Run: sudo apt-get install virtualbox-guest-utils
-      - Run: sudo reboot
-      - Run: sudo adduser username vboxsf
+      - Run: ```sudo apt-get install virtualbox-guest-utils```
+      - Run: ```sudo reboot```
+      - Run: ```sudo adduser username vboxsf```
          - User should be added to group now
 - Create a new directory called "Share"
-   - Run: mkdir Share
-   - Run: ls
+   - Run: ```mkdir Share```
+   - Run: ```ls```
       - Newly created directory "Share" should be listed
 
 ![share directory](https://github.com/user-attachments/assets/40e15bb1-c81d-4024-a6ca-c805f11b71a6)
@@ -232,44 +232,44 @@ You should now have Oracle VM VirtualBox Manager installed, along with four VMs 
       - If you forget what your shared folder name is:
          - Navigate to Devices > Shared Folders > Shared Folders Settings
    - If you get an error, exit session and re-do steps
-      - Run: exit
+      - Run: ```exit```
       - Error may occur because when you add your user into a new group, it may not reflect until you log out
-   - Run: ls -la
+   - Run: ```ls -la```
       - Should now see that our "share" is now highlighted
 
 ![highlighted share in splunk](https://github.com/user-attachments/assets/3280e379-abc0-4cd2-a231-ac85a8072c59)
 
 - Change directories into that share
-   - Run: cd share
-   - Run: clear
-   - Run: ls -la
+   - Run: ```cd share```
+   - Run: ```clear```
+   - Run: ```ls -la```
       - This will display all the files listed in this directory, including our Splunk Installer
 - To install Splunk:
    - Run: sudo dpkg -i splunk (hit tab to auto-complete)
    - Once you see "Complete", should be good to change into directory where Splunk is located onto our server
 - Change directory
-   - Run: cd /opt/splunk
-   - Run: ls -la
+   - Run: ```cd /opt/splunk```
+   - Run: ```ls -la```
       - Here you will notice that all users and groups belong to Splunk, which is a good thing as it limits the permissions to that user
     
 ![cd :opt:splunk](https://github.com/user-attachments/assets/3eff4d56-be78-4771-b914-acf3e478259f)
 
 - Change into user Splunk
-   - Run: sudo -u splunk bash
+   - Run: ```sudo -u splunk bash```
       - Now, we are acting as user Splunk 
-- Run: cd bin
+- Run: ```cd bin```
    - Files listed in here are all binaries that Splunk can use
    - the one that we will use is "./splunk start"
-   - Run: ./splunk start
+   - Run: ```./splunk start```
       - This will run the installer
    - Click "q"
    - Type "y" to accept
    - Select an administrator username and password
 - Once installation is completed:
-   - Run: exit
+   - Run: ```exit```
       - To exit out of user Splunk 
-   - Run: cd bin
-   - Run: sudo ./splunk enable boot-start -user splunk
+   - Run:```cd bin```
+   - Run:``` sudo ./splunk enable boot-start -user splunk```
       - Whenever the VM reboots, Splunk will run with user splunk
 
 ![splnk login](https://github.com/user-attachments/assets/647ecc3c-8549-4d9b-ac4f-1ec626b56d54)
@@ -288,7 +288,7 @@ Please note that configuring the Windows Machine and the Windows Server is extre
      
 - Update static IP to 192.168.10.100
    - Open command prompt
-   - Run: ipconfig
+   - Run: ```ipconfig```
       - this will display current IPv4
    - Navigate to network icon at the bottom right of the window
    - Select "Open Network & Internet Settings"
@@ -302,7 +302,7 @@ Please note that configuring the Windows Machine and the Windows Server is extre
 ![windows 8 8 8 8](https://github.com/user-attachments/assets/84f4a826-b0e2-46d8-b099-59dac9e59256)
 
 
-   - Run ipconfig to view updated IPv4
+   - Run: ``` ipconfig to view updated IPv4```
 
 ![cmnd prompt](https://github.com/user-attachments/assets/38e0c671-84ff-4246-b9e3-f668b4fc1809)
 
@@ -351,8 +351,8 @@ Please note that configuring the Windows Machine and the Windows Server is extre
    - Open PowerShell as administrator
    - Change directory into the file path 
       - Run: cd (Paste the file path of the extracted directory here)
-      - ex. cd C:\Users\hacki\Downloads\Sysmon 
-   - Run: .\Sysmon64.exe -i ..\sysmonconfig.xml
+      - ex. ```cd C:\Users\hacki\Downloads\Sysmon ```
+   - Run: ```.\Sysmon64.exe -i ..\sysmonconfig.xml```
       - -i flag indicates that we want to specify a configuration file
       - ../ allows us to go back one directory 
          - sysmon config file is locaed under downloads directory so ../ will allow us to do that
@@ -461,7 +461,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
      
 - Update static IP to 192.168.10.7
    - Open command prompt
-   - Run: ipconfig
+   - Run: ```ipconfig```
       - this will display current IPv4
    - Navigate to network icon at the bottom right of the window
    - Select "Open Network & Internet Settings"
@@ -474,7 +474,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
      
 ![addc ip](https://github.com/user-attachments/assets/c7dc690f-405f-4408-912b-d1d686efe638)
 
-   - Run ipconfig to view updated IPv4
+   - Run: ```ipconfig to view updated IPv4```
 
 ![addc static](https://github.com/user-attachments/assets/29b3e82b-bcdb-4826-b59c-b8793a461d57)
 
@@ -524,7 +524,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
    - Change directory into the file path 
       - Run: cd (Paste the file path of the extracted directory here)
       - ex. cd C:\Users\hacki\Downloads\Sysmon 
-   - Run: .\Sysmon64.exe -i ..\sysmonconfig.xml
+   - Run: ``` .\Sysmon64.exe -i ..\sysmonconfig.xml ```
       - -i flag indicates that we want to specify a configuration file
       - ../ allows us to go back one directory 
          - sysmon config file is locaed under downloads directory so ../ will allow us to do that
@@ -676,7 +676,7 @@ Active Directory is now set up and our server is now promoted to domain controll
 
    - Confirm updated DNS Server in Command Prompt
       - Open Command Prompt
-      - Run: ipconfig /all
+      - Run: ```ipconfig /all```
 
 ![cmnd prompt - dns conf](https://github.com/user-attachments/assets/28405fc6-bafb-4007-b7d2-cc7bea5d43e1)
 
@@ -730,77 +730,77 @@ We have successfully configured our Active Directory server, created new users, 
    - Select the Ethernet icon again and select "Wired connection 1"
    - Confirm that the static IP has been updated
       - Open terminal
-      - Run: ip ab
+      - Run: ```ip a```
         
 ![kali terminal](https://github.com/user-attachments/assets/346e6ff5-1e7b-494c-a017-2eb9589f2753)
 
    - Verify connectivity
-      - Run: ping google.com
-      - Run: ping 192.168.10.10
+      - Run: ```ping google.com```
+      - Run: ```ping 192.168.10.10```
         
 - Update & upgrade repositories
-   - Run: sudo apt-get update && sudo apt-get upgrade -y
+   - Run: ```sudo apt-get update && sudo apt-get upgrade -y```
  
 ***2. Set up the Attack***
      
 - Set up attack, once update & upgrade is complete
    - First, create a new directory called AD Project
-      - Run: mkdir AD-Project
+      - Run: ```mkdir AD-Project```
       - This will create a directory on our desktop. All the files that we will create & use, will be put into this directory.
 
 - Install crowbar
-   - Run:sudo apt-get install -y crowbar
+   - Run: ```sudo apt-get install -y crowbar```
    - Crowbar is the tool that we will be using to perform brute force attacks. We can target either our ADDC machine or our target machine.
    - Please note: We are using this tool for educational purposes only; please only attack consenting targets.
 
 - Use rockyou file
 	- Rockyou is a popular world list that comes with Kali Linux
 - Change to the directory where you will find rockyou file  
-	- Run: cd /usr/share/wordlists/
-	- Run: ls
+	- Run: ```cd /usr/share/wordlists/```
+	- Run: ```ls```
 - Unzip rockyou.txt.gz file using gunzip
-	- Run: sudo gunzip rockyou.txt.gz
- 	- Run: ls
+	- Run: ```sudo gunzip rockyou.txt.gz```
+ 	- Run: ```ls```
  Now, you should see rockyou.txt:
 
 ![find rockyou](https://github.com/user-attachments/assets/269ba022-6bc5-44ce-93ab-0fccf00d2887)
 
 - Copy this file onto AD Project folder
-	- Run: cp rockyou.txt ~/Desktop/AD-Project/
+	- Run: ```cp rockyou.txt ~/Desktop/AD-Project/```
 - Change into AD Project directory
 	- cd ~/Desktop/AD-Project/
 - Verify that it rockyou.txt copied over into this directory
-	- Run: clear 
- 	- Run: ls -lh
+	- Run: ```clear ```
+ 	- Run: ```ls -lh```
 
 Here, you can see that this file contains 134 M meaning it contains quite a bit of passwords. For the sake of the project, we will only use the first 20 lines. 
 
 ![rockyou](https://github.com/user-attachments/assets/17bf1e10-4e21-41b0-85b3-b73b3584de63)
 
 - To only use the first 20 lines:
-	- Run: head -n 20 rockyou.txt
+	- Run: ```head -n 20 rockyou.txt```
    
 Here, you will see 20 lines.
 
 ![rockyou 20](https://github.com/user-attachments/assets/7380ef1a-0730-432a-92bd-1276d5fd979b)
 
 - Clear it out
-	- Run: clear 
+	- Run: ```clear ```
 - Output it to a file called passwords.txt
-	- Run: head -n 20 rockyou.txt > passwords.txt
- 	- Run: ls
+	- Run: ```head -n 20 rockyou.txt > passwords.txt```
+ 	- Run: ```ls```
   		- Now, you will see the rockyou.txt & the passwords.txt file
       
 ![kali - pw   ru file](https://github.com/user-attachments/assets/3f70cdc7-d74c-4454-bbff-971d29bf38e0)
 
 - Open passwords.txt
-	- Run: cat passwords.txt
+	- Run: ```cat passwords.txt```
  		-  Should see the 20 lines
      
 ![kali pw](https://github.com/user-attachments/assets/70141978-c3c0-4255-84dd-dfc3875c48bc)
 
 - Let’s say we want to target a certain PW
-	- Run: nano passwords.txt
+	- Run: ```nano passwords.txt```
  		- This command allows you to edit the file
    		- Add PW at end
      		- Save by holding control + x
@@ -810,7 +810,7 @@ Here, you will see 20 lines.
 ![kali PW file edit](https://github.com/user-attachments/assets/5ae3e437-f6bc-4be6-b664-63066a1caf54)
 
 - Verify that edit was saved
-	- Run: cat passwords.txt
+	- Run: ```cat passwords.txt```
  	- Should see 21 lines
     
 ![cd pw file](https://github.com/user-attachments/assets/5df58b44-f3cc-4a49-ac96-65d25566a80f)
@@ -858,7 +858,7 @@ Here, you will see 20 lines.
 ![crowbar -hh](https://github.com/user-attachments/assets/584e9efa-afc1-404c-8cc2-fca84056b0c3)
 
 - Attack
-	- Run: crowbar -b rdp -u tmsith -C passwords.txt -s 192.168.10.100/32
+	- Run: ```crowbar -b rdp -u tmsith -C passwords.txt -s 192.168.10.100/32```
  		- b specifies service (rdp)
   		- u specifies account of interest (tsmith)
    		- C specify a PW list (passwords.txt)
@@ -908,7 +908,7 @@ Atomic Red Team is an open source library of tests designed to test your organiz
 
 - Start the Windows 10 (target-PC) machine
 - Open Powershell as an administrator
-	- Run: Set-ExecutionPolicy Bypass CurrentUser
+	- Run: ``` Set-ExecutionPolicy Bypass CurrentUser ```
 	- Type "Y"
 - Next, set an exclusion for the entire c drive as Microsoft Defender will detect & remove some of the files from ART
 	- Select on up arrow on Windows
@@ -963,24 +963,24 @@ Next, we are going to setup powershell by following the installaton instructions
 	- Here you will find the scripts that we will be copying into PowerShell 
 - Select Installation 
 - Powershell can’t run scripts so we will combat by first running:
-	- Run: powershell -exec bypass or set-ExecutionPolicy Bypass CurrentUser
+	- Run: ``` powershell -exec bypass or set-ExecutionPolicy Bypass CurrentUser ```
   	- Type "Y"
   	- With this command, we can now run scripts
 - Install module
-	- Run: Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser 
+	- Run: ``` Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser ```
 - Import module
-	- Run: Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+	- Run: ``` Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force ```
  	- Please take note of the path of the above command. This is why we cleaned up the files a few moments ago.
 
 ![powershell -exec bypass  install invoke ART](https://github.com/user-attachments/assets/4d5457aa-3880-4e0f-ab99-6847f1acedb8)
 
 - Verify that module was imported correctly
-	- Run: get-module
+	- Run: ``` get-module ```
  	- Should see "Invoke-AtomicRedTeam" script
     
 - Now, you can use one of the tactics from the atomics folder
 	- Choose which tactic you want to use
- 	- Run: Invoke-AtomicTest T1136.001
+ 	- Run: ``` Invoke-AtomicTest T1136.001 ```
   		- This attack creates a new windows admin user called “newlocaluser”
 
 ![ART attack on Powershell](https://github.com/user-attachments/assets/fb653f49-5121-4c64-b82f-46ffa252c123)
