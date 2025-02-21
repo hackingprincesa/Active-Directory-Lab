@@ -14,10 +14,10 @@ The lab aims to provide a hands-on experience in setting up a virtualized enviro
 - Crowbar: For simulating brute force attacks.
 - Atomic Red Team: For simulating adversary tactics via PowerShell.
 - Sysmon: For endpoint monitoring and logging system activity on Windows.
-- Windows Server 2022 for Active Directory Domain Services setup
-- Ubuntu Server as a Splunk server
-- Microsoft Windows 10 as the target machine
-- Kali Linux as an attacker machine for simulation
+- Windows Server 2022: For Active Directory Domain Services setup
+- Ubuntu Server: As a Splunk server
+- Microsoft Windows 10: As the target machine
+- Kali Linux: As an attacker machine for simulation
 
 ## Step-by-Step Guide:
 
