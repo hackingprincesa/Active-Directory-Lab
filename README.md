@@ -527,7 +527,7 @@ Now, we have our Sysmon & Splunk Universal Forwarder installed along with our up
    - Run: ``` .\Sysmon64.exe -i ..\sysmonconfig.xml ```
       - -i flag indicates that we want to specify a configuration file
       - ../ allows us to go back one directory 
-         - sysmon config file is locaed under downloads directory so ../ will allow us to do that
+         - sysmon config file is located under downloads directory so ../ will allow us to do that
    - Hit "Enter"
    - Select "Agree" to install Sysmon
    - Screen will display "Sysmon64 started"
